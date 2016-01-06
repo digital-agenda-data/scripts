@@ -35,6 +35,7 @@ public class SynchronizeVirtuoso {
     private List<String> doNotUpdate = new ArrayList<>();
     private String separator = "*#*";
     private boolean listMultiple = false;
+    private boolean logOnly = true;
 
     /**
      * Create the virtuoso synchronizer
@@ -56,8 +57,8 @@ public class SynchronizeVirtuoso {
         prop.load(in);
         in.close();
 
-        String[] ignoreMultiple = prop.getProperty("ignore_multiple").split("\\s*,\\s*");
-        String[] doNotUpdate = prop.getProperty("do_not_update").split("\\s*,\\s*");
+        String[] ignoreMultiple = prop.getProperty("ignore_multiple","").split("\\s*,\\s*");
+        String[] doNotUpdate = prop.getProperty("do_not_update","").split("\\s*,\\s*");
 
         SynchronizeVirtuoso jt = new SynchronizeVirtuoso(prop.getProperty("source.sparql_endpoint"),
                 prop.getProperty("dest.jdbc"),
@@ -67,6 +68,7 @@ public class SynchronizeVirtuoso {
         jt.setIgnoreMultiple(Arrays.asList(ignoreMultiple));
         jt.setDoNotUpdate(Arrays.asList(doNotUpdate));
         jt.setListMultiple(Boolean.parseBoolean(prop.getProperty("dest.show_multiples", "false")));
+        jt.setLogOnly(Boolean.parseBoolean(prop.getProperty("log_only","true")));
 
         String[] graphs = prop.getProperty("graphs").split("\\s*,\\s*");
         for(String graph : graphs) {
@@ -297,6 +299,7 @@ public class SynchronizeVirtuoso {
      * @param conn
      */
     private void insert(String graph, Triple t, Connection conn) {
+        if(logOnly) return;
         Statement insert = null;
         try {
             insert = conn.createStatement();
@@ -336,6 +339,7 @@ public class SynchronizeVirtuoso {
      * @param conn
      */
     private void delete(String graph, String oldValue, Triple t, Connection conn) {
+        if(logOnly) return;
         Statement delete = null;
 
         try {
@@ -347,7 +351,18 @@ public class SynchronizeVirtuoso {
                 oldValue = "\"" + escape(oldValue) + "\"";
             }
 
-            int result = delete.executeUpdate("sparql DELETE FROM GRAPH <" + graph + "> { <" + t.getSubject() + "> <" + t.getPredicate() + "> " + oldValue + " }");
+//            int result = delete.executeUpdate("sparql DELETE FROM GRAPH <" + graph + "> { <" + t.getSubject() + "> <" + t.getPredicate() + "> " + oldValue + " }");
+            String deleteSQL = "sparql\n" +
+                    "delete {\n" +
+                    "  GRAPH <" + graph + "> {\n" +
+                    "\n" +
+                    "  <" + t.getSubject() + ">\n" +
+                    "  <" + t.getPredicate() + ">\n " +
+                    oldValue +
+                    "  }\n" +
+                    "}";
+            System.out.println(deleteSQL);
+            int result = delete.executeUpdate(deleteSQL);
             delete.close();
             if (result != 1) {
                 log.warn("   WARN: delete failed");
@@ -387,5 +402,9 @@ public class SynchronizeVirtuoso {
 
     public void setListMultiple(boolean listMultiple) {
         this.listMultiple = listMultiple;
+    }
+
+    public void setLogOnly(boolean logOnly) {
+        this.logOnly = logOnly;
     }
 }
