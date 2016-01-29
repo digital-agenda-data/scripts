@@ -1,0 +1,56 @@
+select 
+years.Year as year, 
+Countries.ExpCountry as country, 
+either( 
+equ(lcase(Variables.ExpVariable), 'e_igov2'), 'e_igov', 
+either( 
+equ(lcase(Variables.ExpVariable), 'e_igov3'), 'e_igov', 
+either( 
+equ(lcase(Variables.ExpVariable), 'e_igov2rt'), 'e_igovrt', 
+either( 
+equ(lcase(Variables.ExpVariable), 'e_inv2'), 'e_inv', 
+either( 
+equ(lcase(Variables.ExpVariable), 'e_iacc3g'), 'e_pmd', 
+either( 
+equ(lcase(Variables.ExpVariable), 'e_iacc3g_20'), 'e_empmd_gt20', 
+either( 
+equ(lcase(Variables.ExpVariable), 'e_erp'), 'e_erp1', 
+either( 
+equ(lcase(Variables.ExpVariable), 'p_iacc3g'), 'p_empmd', 
+either( 
+equ(lcase(Variables.ExpVariable), 'e_envra'), 'e_ra', 
+either( 
+equ(lcase(Variables.ExpVariable), 'e_sm1_any'), 'e_sm_any', 
+either( 
+equ(lcase(Variables.ExpVariable), 'e_rfid1'), 'e_rfid', 
+lcase(Variables.ExpVariable) 
+))))))))))) as variable, 
+either( 
+equ(lcase(BrkDwns.ExpBrkDwn), '10_c10_n82_xk'), 'ent_all_xfin', 
+either( 
+equ(lcase(BrkDwns.ExpBrkDwn), 'sm_c10_n82_xk'), 'ent_sm_xfin', 
+either( 
+equ(lcase(BrkDwns.ExpBrkDwn), 's_c10_n82_xk'), 'ent_s_xfin', 
+either( 
+equ(lcase(BrkDwns.ExpBrkDwn), 'm_c10_n82_xk'), 'ent_m_xfin', 
+either( 
+equ(lcase(BrkDwns.ExpBrkDwn), 'l_c10_n82_xk'), 'ent_l_xfin', 
+lcase(BrkDwns.ExpBrkDwn)))))) as brkdown, 
+lcase(Units.ExpUnit) as unit, 
+DataWithAggregates.Value as obsValue, 
+coalesce(DataWithAggregates.Flags, '') as flag, 
+coalesce(Notes.Note, '') as note 
+from 
+DataWithAggregates 
+join Years on DataWithAggregates.IdYear = Years.IdYear 
+join Variables on DataWithAggregates.IdVariable = Variables.IdVariable 
+join BrkDwns on DataWithAggregates.IdBrkDwn = BrkDwns.IdBrkDwn 
+join Countries on DataWithAggregates.IdCountry = Countries.IdCountry 
+join Units on DataWithAggregates.IdUnit = Units.IdUnit 
+left outer join Notes on DataWithAggregates.IdNote = Notes.IdNote 
+where 
+Countries.ExpCountry not in ('EA', 'EA16', 'EU15', 'EU25') AND 
+lcase(Units.ExpUnit) in ('pc_ent', 'pc_turn', 'pc_ent_itsprcr2', 'pc_emp', 'pc_emp_pmd','pc_ent_aesell') AND 
+Years.Year = 2009 AND lcase(BrkDwns.ExpBrkDwn) in ('10_c10_n82_xk', 'sm_c10_n82_xk', 'l_c10_n82_xk', 'm_c10_n82_xk', 's_c10_n82_xk') AND ( 
+lcase(Variables.ExpVariable) in ('e_broad') 
+)

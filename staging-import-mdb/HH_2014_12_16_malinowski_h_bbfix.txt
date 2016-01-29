@@ -1,0 +1,26 @@
+select 
+years.Year as year, 
+upper(Countries.ExpCountry) as country, 
+lower(Variables.ExpVariable) as variable, 
+case lower(BrkDwns.ExpBrkDwn) 
+when 'total' then 'hh_total' 
+else lower(BrkDwns.ExpBrkDwn) end as brkdown, 
+lower(Units.ExpUnit) as unit, 
+DataWithAggregates.Value as value, 
+coalesce(DataWithAggregates.Flags, '') as flag, 
+coalesce(Notes.Note, '') as note 
+from 
+DataWithAggregates 
+join Years on DataWithAggregates.IdYear = Years.IdYear 
+join Variables on DataWithAggregates.IdVariable = Variables.IdVariable 
+join BrkDwns on DataWithAggregates.IdBrkDwn = BrkDwns.IdBrkDwn 
+join Countries on DataWithAggregates.IdCountry = Countries.IdCountry 
+join Units on DataWithAggregates.IdUnit = Units.IdUnit 
+left outer join Notes on DataWithAggregates.IdNote = Notes.IdNote 
+where 
+lower(Units.ExpUnit) IN ('pc_hh', 'pc_ind', 'pc_ind_ilt12', 'pc_ind_iu3') AND 
+upper(Countries.ExpCountry) not in ('EA', 'EA16', 'EU15', 'EU25') AND 
+lower(Variables.ExpVariable) IN ('h_bbfix') AND 
+lower(BrkDwns.ExpBrkDwn) in ('ind_total', 'hhi_q1', 'hhi_q2', 'hhi_q3', 'hhi_q4', 'y16_24', 'y25_54', 'y25_64', 'y55_74', 'hh_deg1', 'hh_deg2', 'hh_deg3', 'all_dch', 'all_ndch', 'total', 'hh_no1', 'hh_o1', 
+'y16_24', 'y25_34', 'y35_44', 'y45_54', 'y55_64', 'y65_74', 'cb_eu_for', 'cb_ext_eu', 'cb_nat', 'cc_eu_for', 'cc_ext_eu', 'cc_nat', 'ind_deg1', 'ind_deg2', 'ind_deg3', 'i0_2', 'i3_4', 'i5_6', 'sal_self_fam', 'une', 'empl_une', 'stud', 'retir_other', 'f_y16_74', 'm_y16_74', 'ind_no1', 'ind_o1', 'rf_0', 'rf_ge1', 'rf_ge2', 'csk_hi', 'csk_lo', 'csk_me', 'cskx')
+

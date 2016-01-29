@@ -1,0 +1,71 @@
+Staging databases
+==================
+
+ENT1_20111212   melis   Completed   2013-05-02 11:40:44
+ENT2_16_01_2015 heinlaid    Completed   2015-01-28 20:32:17
+ENT2_20130416   melis   Completed   2013-04-30 17:41:47
+ENT2_20131219   melis   Completed   2014-01-20 20:52:03
+ENT2_20140130   melis   Completed   2014-02-07 18:34:12
+ENT2_2014_12_07 malinowski  Completed   2014-12-18 12:08:35
+ENT2_2015_05_18mdb  malinowski  Completed   2015-05-21 17:27:05
+ENT_2015_12_09  malinowski  Completed   2015-12-17 18:49:27
+HH_20130429 melis   Completed   2013-04-30 09:01:46
+HH_20131218 melis   Completed   2014-01-20 20:52:23
+HH_20140430 melis   Completed   2014-05-02 15:22:22
+HH_2014_12_16   malinowski  Completed   2014-12-19 12:37:59
+HH_2015_04_30   malinowski  Completed   2015-05-21 17:29:08
+HH_2015_12_11   malinowski  Completed   2015-12-17 18:59:08
+
+
+RDF imports
+==============
+
+Database            Name                                                                   User        Started           Status
+HH_20130429         HH_20130429_melis_130430_173334                                        melis       30.04.2013 17:35  Completed
+ENT2_20130416       ENT2_20130416_melis_130502_113952                                      melis       02.05.2013 11:40  Completed
+ENT1_20111212       ENT1_20111212_melis_130502_114226                                      melis       02.05.2013 11:42  Completed
+ENT1_20111212       ENT1_20111212_melis_130526_180903                                      melis       26.05.2013 18:09  Completed
+ENT2_20130416       ENT2_20130416_melis_130526_181054                                      melis       26.05.2013 18:11  Completed
+HH_20130429         HH_20130429_melis_130526_181418                                        melis       26.05.2013 18:15  Completed
+ENT2_20131219       ENT2_20131219_melis_140120_205729                                      melis       20.01.2014 20:58  Completed
+HH_20131218         HH_20131218_melis_140120_210017                                        melis       20.01.2014 21:03  Completed
+ENT2_20140130       ENT2_20140130_melis_140209_111015                                      melis       09.02.2014 11:10  Completed
+HH_20140430         HH_20140430_melis_140502_161213                                        melis       02.05.2014 16:12  Completed
+HH_2014_12_16       HH_2014_12_16_malinowski_2014data                                      malinowski  19.12.2014 12:42  Completed
+ENT1_20111212       ENT1_20111212_malinowski_databefore2009                                malinowski  19.12.2014 19:10  Completed
+ENT2_2014_12_07     ENT2_2014_12_07_malinowski_2009data                                    malinowski  19.12.2014 19:19  Completed
+ENT2_2014_12_07     ENT2_2014_12_07_malinowski_after2009                                   malinowski  19.12.2014 19:28  Completed
+ENT2_16_01_2015     ENT2_16_01_2015_malinowski_after2009                                   malinowski  30.01.2015 12:46  Completed
+ENT2_16_01_2015     ENT2_16_01_2015_malinowski_2009                                        malinowski  30.01.2015 12:57  Completed
+ENT1_20111212       ENT1_20111212_malinowski_before2009                                    malinowski  30.01.2015 16:53  Completed
+HH_2014_12_16       HH_2014_12_16_malinowski_h_bbfix                                       malinowski  19.02.2015 13:04  Completed
+ENT2_16_01_2015     ENT2_16_01_2015_malinowski_e_invsnd                                    malinowski  19.02.2015 17:55  Completed
+HH_2014_12_16       HH_2014_12_16_malinowski_i_cc                                          malinowski  19.02.2015 18:32  Completed
+HH_2014_12_16       HH_2014_12_16_malinowski_lead_indicators_I_bfeu_i_ugov12               malinowski  20.02.2015 16:40  Completed
+ENT2_16_01_2015     ENT2_16_01_2015_malinowski_lead_indicator_e_cc_pcpu                    malinowski  20.02.2015 16:48  Completed
+ENT2_16_01_2015     ENT2_16_01_2015_malinowski_lead_indicator_e_itspvac2_e_rfpsas          malinowski  20.02.2015 16:53  Completed
+HH_2014_12_16       HH_2014_12_16_malinowski_i_iunw1                                       malinowski  04.03.2015 18:10  Completed
+HH_2014_12_16       HH_2014_12_16_malinowski_i_iunw1_EU27                                  malinowski  04.03.2015 18:31  Completed
+HH_2014_12_16       HH_2014_12_16_malinowski_density_new_breakdown                         malinowski  19.05.2015 12:17  Completed
+ENT2_2015_05_18mdb  ENT2_2015_05_18mdb_malinowski_ENT2_after_2009                          malinowski  22.05.2015 15:44  Completed
+ENT2_2015_05_18mdb  ENT2_2015_05_18mdb_malinowski_ENT2_2009                                malinowski  22.05.2015 15:49  Completed
+ENT1_20111212       ENT1_20111212_malinowski_before2009_may2015                            malinowski  22.05.2015 16:00  Completed
+ENT2_2015_05_18mdb  ENT2_2015_05_18mdb_malinowski_e_rfpsas_e_rfpsas1                       malinowski  28.05.2015 18:22  Completed
+ENT2_2015_05_18mdb  ENT2_2015_05_18mdb_malinowski_e_invsnd                                 malinowski  28.05.2015 19:33  Completed
+ENT2_2015_05_18mdb  ENT2_2015_05_18mdb_malinowski_after2009_incDESIvar                     malinowski  29.05.2015 12:25  Completed
+ENT2_2015_05_18mdb  ENT2_2015_05_18mdb_malinowski_2009                                     malinowski  29.05.2015 13:22  Completed
+ENT1_20111212       ENT1_20111212_malinowski_may2015                                       malinowski  29.05.2015 18:56  Completed
+HH_2015_04_30       HH_2015_04_30_june_03_fullexport                                       malinowski  03.06.2015 19:12  Completed
+HH_2015_04_30       HH_2015_04_30_malinowski__i_iuph_i_iumapp_I_cc_h_bbfix                 malinowski  20.10.2015 13:07  Completed
+ENT2_2015_05_18mdb  ENT2_2015_05_18mdb_malinowski_e_itsp2correction_error_in_general_query malinowski  26.11.2015 17:17  Completed
+ENT1_20111212       ENT1_20111212_malinowski_December_2015                                 malinowski  17.12.2015 19:55  Completed
+ENT_2015_12_09      ENT_2015_12_09_malinowski_2009_December_2015                           malinowski  17.12.2015 19:58  Completed
+ENT_2015_12_09      ENT_2015_12_09_malinowski_after2009_December2015                       malinowski  17.12.2015 20:08  Completed
+HH_2015_12_11       HH_2015_12_11_malinowski_2015_data                                     malinowski  18.12.2015 12:22  Completed
+ENT_2015_12_09      ENT_2015_12_09_malinowski_mapping_e_broad_and_e_fixbb                  malinowski  18.12.2015 12:58  Completed
+ENT1_20111212       ENT1_20111212_malinowski_e_broad                                       malinowski  18.12.2015 13:08  Completed
+ENT_2015_12_09      ENT_2015_12_09_malinowski_2009_e_broad                                 malinowski  18.12.2015 13:11  Completed
+ENT_2015_12_09      ENT_2015_12_09_malinowski_by_sector_size                               malinowski  18.12.2015 17:29  Completed
+HH_2015_12_11       HH_2015_12_11_malinowski_i_bgood                                       malinowski  20.12.2015 23:38  Completed
+HH_2015_12_11       HH_2015_12_11_malinowski_i_bpgood_2015                                 malinowski  21.12.2015 14:09  Completed
+HH_2015_12_11       HH_2015_12_11_malinowski_adding_high_education_i5_8                    malinowski  18.01.2016 17:45  Completed
