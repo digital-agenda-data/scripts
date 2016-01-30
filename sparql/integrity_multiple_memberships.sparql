@@ -1,0 +1,11 @@
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX dad-prop: <http://semantic.digital-agenda-data.eu/def/property/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dad-class: <http://semantic.digital-agenda-data.eu/def/class/>
+
+select * where {
+  ?s a skos:Concept;
+  dad-prop:membership ?m1;
+  dad-prop:membership ?m2
+  FILTER (?m1!= ?m2)
+}

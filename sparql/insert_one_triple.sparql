@@ -1,0 +1,9 @@
+sparql
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#>
+INSERT DATA INTO GRAPH <http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators> 
+{ 
+ <http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/population/total/habitants/LU/2014>
+ sdmx-measure:obsValue
+ "549680"^^xsd:double
+}

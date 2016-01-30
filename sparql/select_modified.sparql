@@ -1,0 +1,4 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+select * FROM <http://semantic.digital-agenda-data.eu/dataset/digital-agenda-scoreboard-key-indicators>
+where {?s dcterms:modified ?o }

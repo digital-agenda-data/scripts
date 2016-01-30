@@ -1,0 +1,21 @@
+observation	p	value1	value2
+http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/price_internet_only/offer_30_100_mbps/median_euro_ppp/EU27/2014	http://purl.org/linked-data/sdmx/2009/measure#obsValue	59.6540925111365	33.98692457483527
+http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/price_internet_only/offer_30_100_mbps/median_euro_ppp/EU27/2014	http://purl.org/linked-data/sdmx/2009/measure#obsValue	33.98692457483527	59.6540925111365
+
+http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/mob_arpu/total_mob/euro/EU27/2013	http://purl.org/linked-data/sdmx/2009/measure#obsValue	171.1277132823362	168.1999956771047
+http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/mob_arpu/total_mob/euro/EU27/2013	http://purl.org/linked-data/sdmx/2009/measure#obsValue	168.1999956771047	171.1277132823362
+
+http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/fp7ict_newentry/orgclass_total/pc_organisations/HR/2011	http://purl.org/linked-data/sdmx/2009/measure#obsValue	0.5714285714285714	0.5714
+http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/fp7ict_newentry/orgclass_total/pc_organisations/HR/2011	http://purl.org/linked-data/sdmx/2009/measure#obsValue	0.5714	0.5714285714285714
+
+http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/fp7ict_newentry/orgclass_total/pc_organisations/HR/2012	http://purl.org/linked-data/sdmx/2009/measure#obsValue	0.5714285714285714	0.5714
+http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/fp7ict_newentry/orgclass_total/pc_organisations/HR/2012	http://purl.org/linked-data/sdmx/2009/measure#obsValue	0.5714	0.5714285714285714
+
+http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/fp7ict_newentry/orgclass_total/pc_organisations/HR/2008	http://purl.org/linked-data/sdmx/2009/measure#obsValue	0.7143	0.7142857142857143
+http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/fp7ict_newentry/orgclass_total/pc_organisations/HR/2008	http://purl.org/linked-data/sdmx/2009/measure#obsValue	0.7142857142857143	0.7143
+
+http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/mob_arpu/total_mob/euro/EU27/2012	http://purl.org/linked-data/sdmx/2009/measure#obsValue	187.2640359564946	178.0086265901338
+http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/mob_arpu/total_mob/euro/EU27/2012	http://purl.org/linked-data/sdmx/2009/measure#obsValue	178.0086265901338	187.2640359564946
+
+http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/fp7ict_organisations/orgclass_total/nbr_organisations/HR/2013	http://purl.org/linked-data/sdmx/2009/measure#obsValue	"9"^^<http://www.w3.org/2001/XMLSchema#byte>	"0"^^<http://www.w3.org/2001/XMLSchema#byte>
+http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/fp7ict_organisations/orgclass_total/nbr_organisations/HR/2013	http://purl.org/linked-data/sdmx/2009/measure#obsValue	"0"^^<http://www.w3.org/2001/XMLSchema#byte>	"9"^^<http://www.w3.org/2001/XMLSchema#byte>

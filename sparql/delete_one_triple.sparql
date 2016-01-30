@@ -1,0 +1,32 @@
+sparql
+DELETE {
+  GRAPH <http://digital-agenda-data.eu/data/home/abruzzini/registrations> {
+    <http://semantic.digital-agenda-data.eu/codelist/indicator/c1_compcyclesprace>
+    <http://purl.org/dc/terms/source>
+    <http://semantic.digital-agenda-data.eu/codelist/source/einfraprace>
+  }
+}
+
+
+####### here 549680 is a string
+
+sparql
+delete {
+  GRAPH <http://digital-agenda-data.eu/data/home/melis/registrations> {
+<http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/population/total/habitants/LU/2014>
+<http://purl.org/linked-data/sdmx/2009/measure#obsValue>
+"549680"
+  }
+}
+
+####### here 549680 is a double
+
+sparql
+delete {
+  GRAPH <http://digital-agenda-data.eu/data/home/melis/registrations> {
+<http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/population/total/habitants/LU/2014>
+<http://purl.org/linked-data/sdmx/2009/measure#obsValue>
+"549680"^^xsd:double
+  }
+}
+
