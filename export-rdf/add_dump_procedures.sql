@@ -25,38 +25,39 @@ CREATE PROCEDURE dump_graphs
       }
   }
 ;
-CREATE PROCEDURE dump_one_graph
-  ( IN  srcgraph           VARCHAR  ,
-    IN  out_file           VARCHAR  ,
-    IN  file_length_limit  INTEGER  := 1000000000
+CREATE PROCEDURE dump_one_graph 
+  ( IN  srcgraph           VARCHAR
+  , IN  out_file           VARCHAR
+  , IN  file_length_limit  INTEGER  := 1000000000
   )
   {
-    DECLARE  file_name  varchar;
-    DECLARE  env, ses      any;
-    DECLARE  ses_len,
-             max_ses_len,
-             file_len,
-             file_idx      integer;
-    SET ISOLATION = 'uncommitted';
-    max_ses_len := 10000000;
-    file_len := 0;
-    file_idx := 1;
-    file_name := sprintf ('%s%06d.ttl', out_file, file_idx);
-    string_to_file ( file_name || '.graph',
-                     srcgraph,
+    DECLARE  file_name     VARCHAR
+  ; DECLARE  env
+          ,  ses           ANY
+  ; DECLARE  ses_len
+          ,  max_ses_len
+          ,  file_len
+          ,  file_idx      INTEGER
+  ; SET ISOLATION = 'uncommitted'
+  ; max_ses_len  := 10000000
+  ; file_len     := 0
+  ; file_idx     := 1
+  ; file_name    := sprintf ('%s%06d.ttl', out_file, file_idx)
+  ; string_to_file ( file_name || '.graph', 
+                     srcgraph, 
                      -2
                    );
-    string_to_file ( file_name,
-                     sprintf ( '# Dump of graph <%s>, as of %s\n',
-                               srcgraph,
+    string_to_file ( file_name, 
+                     sprintf ( '# Dump of graph <%s>, as of %s\n@base <> .\n', 
+                               srcgraph, 
                                CAST (NOW() AS VARCHAR)
-                             ),
+                             ), 
                      -2
-                   );
-    env := vector (dict_new (16000), 0, '', '', '', 0, 0, 0, 0);
-    ses := string_output ();
-    FOR (SELECT * FROM ( SPARQL DEFINE input:storage ""
-                         SELECT ?s ?p ?o { GRAPH `iri(?:srcgraph)` { ?s ?p ?o } }
+                   )
+  ; env := vector (dict_new (16000), 0, '', '', '', 0, 0, 0, 0, 0)
+  ; ses := string_output ()
+  ; FOR (SELECT * FROM ( SPARQL DEFINE input:storage "" 
+                         SELECT ?s ?p ?o { GRAPH `iri(?:srcgraph)` { ?s ?p ?o } } 
                        ) AS sub OPTION (LOOP)) DO
       {
         http_ttl_triple (env, "s", "p", "o", ses);
@@ -68,17 +69,19 @@ CREATE PROCEDURE dump_one_graph
               {
                 http (' .\n', ses);
                 string_to_file (file_name, ses, -1);
+		gz_compress_file (file_name, file_name||'.gz');
+		file_delete (file_name);
                 file_len := 0;
                 file_idx := file_idx + 1;
                 file_name := sprintf ('%s%06d.ttl', out_file, file_idx);
-                string_to_file ( file_name,
-                                 sprintf ( '# Dump of graph <%s>, as of %s (part %d)\n',
-                                           srcgraph,
-                                           CAST (NOW() AS VARCHAR),
-                                           file_idx),
+                string_to_file ( file_name, 
+                                 sprintf ( '# Dump of graph <%s>, as of %s (part %d)\n@base <> .\n', 
+                                           srcgraph, 
+                                           CAST (NOW() AS VARCHAR), 
+                                           file_idx), 
                                  -2
                                );
-                 env := vector (dict_new (16000), 0, '', '', '', 0, 0, 0, 0);
+                 env := VECTOR (dict_new (16000), 0, '', '', '', 0, 0, 0, 0, 0);
               }
             ELSE
               string_to_file (file_name, ses, -1);
@@ -89,7 +92,10 @@ CREATE PROCEDURE dump_one_graph
       {
         http (' .\n', ses);
         string_to_file (file_name, ses, -1);
+	gz_compress_file (file_name, file_name||'.gz');
+	file_delete (file_name);
       }
   }
 ;
 exit;
+
