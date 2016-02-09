@@ -237,6 +237,8 @@ public class SynchronizeVirtuoso {
 
                         if (isIgnorePredicateMultiple(t.getPredicate().toString())) {
                             // insert the value even if multiple
+                            log.info("TO UPDATE (multiplicity ignored) " + t.getSubject() + "  " + t.getPredicate() + "  -" + t.getObject() + "-  ORIGINAL -" + l.get(0) + "-");
+
                             insert(graph, t, conn);
                         } else if (l.size() == 1) {
                             if (!isDoNotUpdate(t.getPredicate().toString())) {
@@ -249,6 +251,8 @@ public class SynchronizeVirtuoso {
 
                                 delete(graph, l.get(0), t, conn);
                                 insert(graph, t, conn);
+                            } else {
+                                log.info("In do_not_update list " + t.getSubject() + "  " + t.getPredicate() + "  -" + t.getObject());
                             }
                         } else {
                             log.warn("MULTIPLE VALUES " + t.getSubject() + "  " + t.getPredicate() + "  " + t.getObject());
@@ -305,14 +309,23 @@ public class SynchronizeVirtuoso {
             insert = conn.createStatement();
             String s = null;
             if (t.getObject().isLiteral()) {
-                s = t.getObject().getLiteral().getValue().toString();
+                s = "\"" + escape(t.getObject().getLiteral().getValue().toString()) + "\"";
             } else {
-                s = t.getObject().toString();
+                if(t.getObject().isURI()){
+                    s = t.getObject().toString();
+                    if(s.contains("{")){ // digitalagenda links, not Virtuoso internal URIs ("bad iri" warning)
+                        s = "\"" + escape(s) + "\"";
+                    } else {
+                        s = "<" + s + ">";
+                    }
+                } else {
+                    s = "\"" + escape(t.getObject().toString()) + "\"";
+                }
             }
-            s = escape(s);
+
 
             log.info("   FIX: insert " + s);
-            int result = insert.executeUpdate("sparql INSERT INTO GRAPH <" + graph + "> { <" + t.getSubject() + "> <" + t.getPredicate() + "> \"" + s + "\" }");
+            int result = insert.executeUpdate("sparql INSERT INTO GRAPH <" + graph + "> { <" + t.getSubject() + "> <" + t.getPredicate() + "> " + s + " }");
             insert.close();
             if (result != 1) {
                 log.warn("   WARN: insert failed");
