@@ -1,0 +1,15 @@
+sparql
+DELETE {
+  graph <http://digital-agenda-data.eu/data/home/abruzzini/registrations> {
+    ?s ?p ?o
+  }
+}
+where {
+  graph ?g {
+    ?s ?p ?o .
+#    filter (?s = <http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/eun_computers/grade8/nb_x100stud/CY/2012>)
+    filter (?p = <http://www.w3.org/2004/02/skos/core#definition>)
+#    filter (?o = "33.3"^^xsd:double)
+    filter (?g = <http://digital-agenda-data.eu/data/home/abruzzini/registrations>)
+  }
+}

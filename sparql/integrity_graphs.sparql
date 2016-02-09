@@ -1,0 +1,56 @@
+# List triples not in the right graph
+
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX dad-prop: <http://semantic.digital-agenda-data.eu/def/property/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+select distinct ?g where {
+  graph ?g {
+    {?o a qb:Observation}
+      UNION 
+    {?o  dad-prop:indicator ?i}
+      UNION 
+    {?o  <http://purl.org/linked-data/sdmx/2009/measure#obsValue> ?value }
+      UNION
+    {?o dad-prop:note ?note }
+  }
+FILTER (!regex(?g, "^http://semantic.digital-agenda-data.eu/data"))
+}
+
+
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX dad-prop: <http://semantic.digital-agenda-data.eu/def/property/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+select distinct ?g where {
+  graph ?g {
+    {?o a skos:Concept}
+      UNION 
+    {?o skos:definition ?d}
+      UNION
+    {?o skos:altLabel ?al}
+      UNION
+    {?o skos:prefLabel ?pl}
+      UNION
+    {?o skos:note ?note}
+  }
+
+FILTER (!regex(?g, "^http://semantic.digital-agenda-data.eu/codelist"))
+}
+
+
+# http://digital-agenda-data.eu/data/home/abruzzini/registrations
+# http://digital-agenda-data.eu/data/home/melis/registrations
+
+# TODO: searcha all triples from the graphs returned by the above query
+
+
+
+### List graph and datatype for a known SP
+select ?g ?o DATATYPE(?o) as ?datatype where
+{graph ?g {
+<http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/population/total/habitants/LU/2014>
+<http://purl.org/linked-data/sdmx/2009/measure#obsValue> 
+ ?o}
+}
+

@@ -1,0 +1,32 @@
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX dad-prop: <http://semantic.digital-agenda-data.eu/def/property/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dad-class: <http://semantic.digital-agenda-data.eu/def/class/>
+
+select * where {
+  graph ?g {
+    ?s a skos:Concept
+    {
+        {
+          ?s skos:definition ?d1; skos:definition ?d2
+          FILTER (?d1 != ?d2 )
+        }
+        UNION
+        {
+          ?s skos:notation ?n1; skos:notation ?n2
+          FILTER (?n1 != ?n2 )
+        }
+        UNION
+        {
+          ?s skos:prefLabel ?p1; skos:prefLabel ?p2
+          FILTER (?p1 != ?p2 )
+        }
+        UNION
+        {
+          ?s skos:altLabel ?a1; skos:altLabel ?a2
+          FILTER (?a1 != ?a2 )
+        }
+    }
+  }
+  FILTER (regex(?g, "^http://semantic.digital-agenda-data.eu/codelist"))
+}

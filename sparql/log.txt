@@ -1,0 +1,85 @@
+#### <http://digital-agenda-data.eu/data/home/melis/registrations>
+
+[fixed] http://semantic.digital-agenda-data.eu/codelist/unit-measure/pc_exp	http://www.w3.org/2004/02/skos/core#altLabel	% of total export
+
+[fixed] http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/population/total/habitants/LU/2014	http://purl.org/linked-data/sdmx/2009/measure#obsValue	549680
+
+
+
+
+
+#### http://digital-agenda-data.eu/data/home/abruzzini/registrations
+
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/c1_compcyclesprace	http://purl.org/dc/terms/source	http://semantic.digital-agenda-data.eu/codelist/source/einfraprace
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/c1_datatraffic	http://purl.org/dc/terms/source	http://semantic.digital-agenda-data.eu/codelist/source/einfrageant
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/c1_bandwidth	http://purl.org/dc/terms/source	http://semantic.digital-agenda-data.eu/codelist/source/einfrageant
+
+[fixed] http://semantic.digital-agenda-data.eu/data/lead-indicators/spectrum_wbb/total/mhz/AT/2013-12	http://purl.org/linked-data/sdmx/2009/measure#obsValue	749.8
+[fixed] http://semantic.digital-agenda-data.eu/data/lead-indicators/spectrum_wbb/total/pc_spectrum_assigned/AT/2013-12	http://purl.org/linked-data/sdmx/2009/measure#obsValue	0.757
+[fixed] http://semantic.digital-agenda-data.eu/data/lead-indicators/eoa_vod_estab_otheu/total/nb_vod_service/BE/2014-02	http://purl.org/linked-data/sdmx/2009/measure#obsValue	12.7
+[fixed] http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/h2020_ec_funding/orgclass_le/pc_h2020_ec_funding/EU28/2014	http://purl.org/linked-data/sdmx/2009/measure#obsValue	0.2213
+[fixed] http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/h2020_ec_funding/orgclass_le/pc_h2020_ec_funding/OTHER/2014	http://purl.org/linked-data/sdmx/2009/measure#obsValue	0.0136
+[fixed] http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/h2020_particip/orgclass_le/pc_h2020_particip/EU28/2014	http://purl.org/linked-data/sdmx/2009/measure#obsValue	0.2072
+
+
+[fixed] http://semantic.digital-agenda-data.eu/codelist/breakdown/empl_une	http://semantic.digital-agenda-data.eu/def/property/membership	labour_force
+[fixed] http://semantic.digital-agenda-data.eu/data/lead-indicators/eoa_vod_estab_otheu/total/nb_vod_service/BE/2014-02	http://semantic.digital-agenda-data.eu/def/property/note	Simple average of figures for the 3 linguistic communities: Flemish 10, French 11, German 17
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator-group/audiovisual	http://semantic.digital-agenda-data.eu/def/property/order	45
+
+[fixed] http://semantic.digital-agenda-data.eu/codelist/breakdown/total_sos	http://www.w3.org/2004/02/skos/core#altLabel	All SOs
+[fixed] http://semantic.digital-agenda-data.eu/codelist/unit-measure/pc_projects	http://www.w3.org/2004/02/skos/core#altLabel	% of projects
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/epsi_score	http://www.w3.org/2004/02/skos/core#altLabel	Public Sector Information scoreboard
+* Duplicate different labels* [fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/i_igov12rt	http://www.w3.org/2004/02/skos/core#altLabel	Citizens submitting filled forms to eGov services, last 12 months
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/fp7ict_ec_funding	http://www.w3.org/2004/02/skos/core#altLabel	EC funding to FP7-ICT projects
+[fixed]	http://www.w3.org/2004/02/skos/core#altLabel	CC services sophistication
+[fixed]	http://www.w3.org/2004/02/skos/core#altLabel	Non-national European Films market share in EU cinemas
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/ict_commit_in_trp	http://www.w3.org/2004/02/skos/core#altLabel	EU R&I committed funding for ICT
+[fixed] http://semantic.digital-agenda-data.eu/codelist/unit-measure/pc_trp_commit	http://www.w3.org/2004/02/skos/core#altLabel	Share of EU R&I committed funding
+[fixed] http://semantic.digital-agenda-data.eu/codelist/unit-measure/pc_digskillindex	http://www.w3.org/2004/02/skos/core#altLabel	% of internet users
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/digskillindex	http://www.w3.org/2004/02/skos/core#altLabel	Digital skills indicator (internet users)
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/fp7ict_ec_funding_prc	http://www.w3.org/2004/02/skos/core#altLabel	EC funding to private commercial organisations in FP7-ICT projects
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/fp7ict_ec_funding_smes	http://www.w3.org/2004/02/skos/core#altLabel	EC funding to SMEs in FP7-ICT projects
+[fixed] http://semantic.digital-agenda-data.eu/codelist/unit-measure/terabite	http://www.w3.org/2004/02/skos/core#altLabel	Terabits x month
+
+[fixed] http://semantic.digital-agenda-data.eu/codelist/source/mis	http://www.w3.org/2004/02/skos/core#definition	EC database of ICT research projects under the EU's Seventh Framework Programme (FP7) - Cooperation and Capacities (e-infrastructures) programs. Projects under the CIP ICT PSP are not included. More information on the Programmes at http://cordis.europa.eu/fp7/ict/home_en.html
+[fixed] http://semantic.digital-agenda-data.eu/codelist/source/point_topic	http://www.w3.org/2004/02/skos/core#definition	Broadband coverage in Europe, studies for the EC by Point Topic (2011-2012 figures, SMART 2011/0027 and 2012/0035) and IHS and Valdani, Vicari & Associati (2013 figures, SMART 2013/0054)
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/e_sm_any	http://www.w3.org/2004/02/skos/core#definition	Enterprises using at least one of the following social media: social networks, enterprise's blog or microblog, multimedia content sharing websites, wiki based knowledge sharing tools. Using social media means that the enterprise have a user profile, an account or a user license depending on the requirements and the type of the social media.
+[fixed] http://semantic.digital-agenda-data.eu/codelist/source/eoa_yearbook2014	http://www.w3.org/2004/02/skos/core#definition	European Audiovisual Observatory Yearbook 2014
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/e_aeseu	http://www.w3.org/2004/02/skos/core#definition	The sales have been realised, during the previous calendar year, via any computer networks (in monetary terms, excluding VAT). Computer networks include websites, EDI-type systems and other means of electronic data transfer, excluding manually typed e-mails.
+[fixed] http://semantic.digital-agenda-data.eu/codelist/unit-measure/pc_digskillindex	http://www.w3.org/2004/02/skos/core#definition	Individuals having used internet during last 3 months
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/bb_srcov	http://www.w3.org/2004/02/skos/core#definition	Coverage is a supply indicator defined as the percentage of Households living in areas served by xDSL, cable (basic and NGA), FTTP or WiMax networks. Rural areas are defined as those with less than 100 people per km2.
+[fixed] http://semantic.digital-agenda-data.eu/codelist/breakdown-group/mhz_bands	http://www.w3.org/2004/02/skos/core#definition	Spectrum assigned for wireless broadband in accordance to EU level harmonisation measures
+[fixed] http://semantic.digital-agenda-data.eu/codelist/unit-measure/terabite	http://www.w3.org/2004/02/skos/core#definition	Terabits x month
+
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/fp7_ict_pub	http://www.w3.org/2004/02/skos/core#note	It covers FP7 ICT projects started before October 2013. The indicator is not expected to evolve regularly year by year, due to the coverage of thematic areas by calls which may differ from one year to another. Annual figures should therefore be interpreted with caution.
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/fp7_ict_pat	http://www.w3.org/2004/02/skos/core#note	It covers FP7 ICT projects started before October 2013. The indicator is not expected to evolve regularly year by year, due to the coverage of thematic areas by calls which may differ from one year to another. Annual figures should therefore be interpreted with caution.
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/digskillindex	http://www.w3.org/2004/02/skos/core#note	This indicator has been piloted on the 2012 and 2014 micro-data from the Eurostat community survey on ICT usage by Households/Individuals. It is proposed for regular implementation starting with the 2015 survey.
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/fp7_ict_artic	http://www.w3.org/2004/02/skos/core#note	It covers FP7 ICT projects started before October 2013. The indicator is not expected to evolve regularly year by year, due to the coverage of thematic areas by calls which may differ from one year to another. Annual figures should therefore be interpreted with caution.
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/c1_datatraffic	http://www.w3.org/2004/02/skos/core#note	As of 01/01/2015 the indicator is reset to integrate traffic that was not counted (Layer 1 & 2).
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/c1_bandwidth	http://www.w3.org/2004/02/skos/core#note	As of June 2014 the revamping of the networking was achieved and due to a technology optimisation there are less lightened backup routes explaining the decrease in capacity.
+
+[fixed] http://semantic.digital-agenda-data.eu/codelist/breakdown/total_sos	http://www.w3.org/2004/02/skos/core#prefLabel	All Strategic Objectives and eInfrastructures
+[fixed] http://semantic.digital-agenda-data.eu/codelist/unit-measure/pc_projects	http://www.w3.org/2004/02/skos/core#prefLabel	Percentage of projects
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/epsi_score	http://www.w3.org/2004/02/skos/core#prefLabel	Public Sector Information scoreboard
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator-group/ict-skills	http://www.w3.org/2004/02/skos/core#prefLabel	Digital Skills
+[***] http://eurostat.linked-statistics.org/dic/geo#EU28	http://www.w3.org/2004/02/skos/core#prefLabel	European Union 28
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator-group/research-and-development	http://www.w3.org/2004/02/skos/core#prefLabel	EU Research and Development Programs
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/bb_penet	http://www.w3.org/2004/02/skos/core#prefLabel	Fixed broadband take-up (subscriptions/100 people)
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/fp7ict_ec_funding	http://www.w3.org/2004/02/skos/core#prefLabel	EC funding to participants in FP7-ICT projects
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/e_rfpsas	http://www.w3.org/2004/02/skos/core#prefLabel	Enterprises using RFID for product identification
+[fixed] http://semantic.digital-agenda-data.eu/codelist/breakdown-group/byccsophistication	http://www.w3.org/2004/02/skos/core#prefLabel	CC services sophistication
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/eoa_nn_films	http://www.w3.org/2004/02/skos/core#prefLabel	Non-national European films in cinemas
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/ict_commit_in_trp	http://www.w3.org/2004/02/skos/core#prefLabel	EU R&I committed funding for ICT
+[fixed] http://semantic.digital-agenda-data.eu/codelist/unit-measure/pc_trp_commit	http://www.w3.org/2004/02/skos/core#prefLabel	Percentage of EU R&I committed funding
+[fixed] http://semantic.digital-agenda-data.eu/codelist/unit-measure/pc_digskillindex	http://www.w3.org/2004/02/skos/core#prefLabel	Percentage of internet users
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/digskillindex	http://www.w3.org/2004/02/skos/core#prefLabel	Digital skills indicator (internet users)
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/fp7ict_ec_funding_prc	http://www.w3.org/2004/02/skos/core#prefLabel	EC funding to private commercial organisations in FP7-ICT projects
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator/fp7ict_ec_funding_smes	http://www.w3.org/2004/02/skos/core#prefLabel	EC funding granted to SMEs in FP7-ICT projects
+[fixed] http://semantic.digital-agenda-data.eu/codelist/unit-measure/terabite	http://www.w3.org/2004/02/skos/core#prefLabel	Terabits x month
+[fixed] http://semantic.digital-agenda-data.eu/codelist/indicator-group/research_einfra	http://www.w3.org/2004/02/skos/core#prefLabel	Research e-Infrastructures
+
+http://semantic.digital-agenda-data.eu/codelist/source/eun12	http://xmlns.com/foaf/0.1/page	https://ec.europa.eu/digital-agenda/en/news/ict-education-essie-survey-smart-20100039
+http://semantic.digital-agenda-data.eu/codelist/source/mis	http://xmlns.com/foaf/0.1/page	https://ec.europa.eu/digital-agenda/en/news/ict-research-projects-under-eus-seventh-framework-programme-fp7
+http://semantic.digital-agenda-data.eu/codelist/source/idate	http://xmlns.com/foaf/0.1/page	http://ec.europa.eu/digital-agenda/en/news/broadband-coverage-eu-272-phase-iii-smart-20100037
+http://semantic.digital-agenda-data.eu/codelist/source/biac	http://xmlns.com/foaf/0.1/page	https://ec.europa.eu/digital-agenda/en/news/study-retail-broadband-access-prices-2013-smart-20100038
+http://semantic.digital-agenda-data.eu/codelist/source/samknows	http://xmlns.com/foaf/0.1/page	http://ec.europa.eu/digital-agenda/en/news/quality-broadband-services-eu-samknows-study-internet-speeds

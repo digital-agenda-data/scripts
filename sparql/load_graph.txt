@@ -1,0 +1,23 @@
+/var/local/virtuoso/bin/isql 1112
+
+ld_dir('<source-filename-or-directory>', '<file name pattern>', '<graph iri>');
+e.g. to load multiple gzipped files, do
+ld_dir('/home/me/dataset', '*.gz', 'http://my.default.graph');
+
+
+
+
+ld_dir('/var/local/scoreboardtest/download/', 'digital-agenda-scoreboard-key-indicators000001.ttl.gz', 'http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators');
+ld_dir('/var/local/virtuoso/var/lib/virtuoso/test', 'digital-agenda-scoreboard-key-indicators000001.ttl', 'http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators');
+set isolation='uncommitted';
+rdf_loader_run();
+
+select ll_graph, ll_done, ll_error from  load_list;
+
+#### DELETE
+
+SPARQL drop silent graph <http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators>;
+
+#### EXPORT
+
+dump_one_graph('http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators', '/var/local/scoreboardtest/download/digital-agenda-scoreboard-key-indicators');
