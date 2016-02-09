@@ -361,7 +361,11 @@ public class SynchronizeVirtuoso {
             log.info("   FIX: delete " + oldValue);
 
             if (!oldValue.contains("^^xsd:dateTime")) {
-                oldValue = "\"" + escape(oldValue) + "\"";
+                if (t.getObject().isURI()) {
+                    oldValue = "<" + escape(oldValue) + ">";
+                } else {
+                    oldValue = "\"" + escape(oldValue) + "\"";
+                }
             }
 
 //            int result = delete.executeUpdate("sparql DELETE FROM GRAPH <" + graph + "> { <" + t.getSubject() + "> <" + t.getPredicate() + "> " + oldValue + " }");
