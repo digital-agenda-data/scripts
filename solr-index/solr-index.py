@@ -1,9 +1,21 @@
 from __future__ import print_function
 import pysolr
 import requests
+import argparse
 
-solr = pysolr.Solr('http://localhost:8983/solr/scoreboardtest', timeout=60)
-BASE_PATH = 'http://test.digital-agenda-data.eu'
+
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    '--core', required=True, default='scoreboard', help='Solr core')
+parser.add_argument(
+    '--solr', default='http://localhost:8983/solr',
+    help='Solr full url, e.g. http://localhost:8983/solr')
+parser.add_argument(
+    '--base-path', default='http://digital-agenda-data.eu', required=True,
+    help='Plone website, e.g. http://test.digital-agenda-data.eu')
+
+args = parser.parse_args()
+solr = pysolr.Solr(args.solr + '/' + args.core, timeout=60)
 
 # do not index these
 EXCLUDE_PROPS = set(['inner_order', 'parent_order', 'uri'])
@@ -14,15 +26,13 @@ CUSTOM_PREFIX = {
     'group_notation': '_ss',
     'group_name': '_txt',  # because it is multivalued
 }
-# append _s
 EXACT_MATCH_PROPS = set(CUSTOM_PREFIX.keys())
 
 # multiple valued
 MULTIPLE_PROPS = set(['group_notation'])
 
-
 # list cubes
-datasets = requests.get(BASE_PATH + '/@@datacubesForSelect').json()
+datasets = requests.get(args.base_path + '/@@datacubesForSelect').json()
 
 for dataset in datasets['options']:
     data = requests.get(dataset['uri'] + '/dimension_metadata').json()
