@@ -21,10 +21,10 @@ solr = pysolr.Solr(args.solr + '/' + args.core, timeout=60)
 EXCLUDE_PROPS = set(['inner_order', 'parent_order', 'uri'])
 
 CUSTOM_PREFIX = {
-    'source_uri': '_s',
-    'notation': '_s',
-    'group_notation': '_ss',
-    'group_name': '_txt',  # because it is multivalued
+    #'source_uri': '_s',
+    #'notation': '_s',
+    'group_notation': '_txt_en_m',
+    'group_name': '_txt_en_m',  # because it is multivalued
 }
 EXACT_MATCH_PROPS = set(CUSTOM_PREFIX.keys())
 
