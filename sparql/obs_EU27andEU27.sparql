@@ -1,0 +1,30 @@
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX dad-prop: <http://semantic.digital-agenda-data.eu/def/property/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+
+select ?obs1 ?obs2 where {
+
+?obs1 
+  dad-prop:ref-area <http://eurostat.linked-statistics.org/dic/geo#EU28>;
+  dad-prop:breakdown <http://semantic.digital-agenda-data.eu/codelist/breakdown/ent_all_xfin>;
+  dad-prop:time-period ?year;
+  dad-prop:indicator ?ind.
+  
+?obs2
+  dad-prop:ref-area <http://eurostat.linked-statistics.org/dic/geo#EU27>;
+  dad-prop:breakdown <http://semantic.digital-agenda-data.eu/codelist/breakdown/ent_all_xfin>;
+  dad-prop:time-period ?year;
+  dad-prop:indicator ?ind.
+
+FILTER (?ind = <http://semantic.digital-agenda-data.eu/codelist/indicator/e_broad>)
+
+FILTER EXISTS {
+    ?obs1 qb:dataSet <http://semantic.digital-agenda-data.eu/dataset/digital-agenda-scoreboard-key-indicators>
+}
+FILTER EXISTS {
+    ?obs2 qb:dataSet <http://semantic.digital-agenda-data.eu/dataset/digital-agenda-scoreboard-key-indicators>
+}
+}
+
+LIMIT 10

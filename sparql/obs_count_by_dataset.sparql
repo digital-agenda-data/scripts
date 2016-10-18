@@ -1,0 +1,10 @@
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX dad-prop: <http://semantic.digital-agenda-data.eu/def/property/>
+
+select ?dataset, count(?obs) where 
+{
+  ?obs a qb:Observation;
+  qb:dataSet ?dataset
+}
+
+group by (?dataset)
