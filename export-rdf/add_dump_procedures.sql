@@ -69,8 +69,8 @@ CREATE PROCEDURE dump_one_graph
               {
                 http (' .\n', ses);
                 string_to_file (file_name, ses, -1);
-		gz_compress_file (file_name, file_name||'.gz');
-		file_delete (file_name);
+                gz_compress_file(file_name, file_name||'.gz');
+                file_delete (file_name);
                 file_len := 0;
                 file_idx := file_idx + 1;
                 file_name := sprintf ('%s%06d.ttl', out_file, file_idx);
@@ -92,8 +92,8 @@ CREATE PROCEDURE dump_one_graph
       {
         http (' .\n', ses);
         string_to_file (file_name, ses, -1);
-	gz_compress_file (file_name, file_name||'.gz');
-	file_delete (file_name);
+        gz_compress_file (file_name, file_name||'.gz');
+        file_delete (file_name);
       }
   }
 ;
