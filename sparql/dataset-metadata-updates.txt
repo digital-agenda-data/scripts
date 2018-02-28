@@ -1,0 +1,93 @@
+1. delete contact point
+sparql
+DELETE {
+  graph <http://semantic.digital-agenda-data.eu/dataset/desi> {
+    ?s ?p ?o
+  }
+}
+where {
+  graph ?g {
+    ?s ?p ?o .
+    filter (?s = <http://publications.europa.eu/resource/authority/corporate-body/CNECT/F4>)
+    filter (?g = <http://semantic.digital-agenda-data.eu/dataset/desi>)
+  }
+}
+
+
+2. insert new contact point
+
+sparql
+prefix dcat:	<http://www.w3.org/ns/dcat#>
+prefix dcterms:	<http://purl.org/dc/terms/>
+prefix vcard:	<http://www.w3.org/2006/vcard/ns#>
+prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#>
+
+INSERT {
+GRAPH <http://semantic.digital-agenda-data.eu/dataset/desi> {
+ <http://semantic.digital-agenda-data.eu/dataset/desi> dcat:contactPoint [
+        a vcard:Organization;
+        vcard:fn "DG CONNECT - Digital Economy and Skills (Unit F.4)" ;
+        vcard:hasEmail <mailto:CNECT-F4@ec.europa.eu> ;
+        vcard:hasURL <https://ec.europa.eu/digital-single-market/en/content/digital-economy-and-skills-unit-f4>;
+        rdfs:label "DG CONNECT - Digital Economy and Skills (Unit F.4)"
+ ]
+}
+}
+WHERE { SELECT * {OPTIONAL {?s ?p ?o} } LIMIT 1 }
+
+
+3. delete accrual and contactPoint manually
+
+4. insert new triples
+
+sparql
+prefix dcat:	<http://www.w3.org/ns/dcat#>
+prefix dcterms:	<http://purl.org/dc/terms/>
+prefix vcard:	<http://www.w3.org/2006/vcard/ns#>
+prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#>
+
+INSERT DATA INTO GRAPH <http://semantic.digital-agenda-data.eu/dataset/desi> 
+{ 
+ <http://semantic.digital-agenda-data.eu/dataset/desi>
+   dcterms:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/ANNUAL_2>;
+   dcterms:conformsTo <http://purl.org/linked-data/cube>.
+ <http://semantic.digital-agenda-data.eu/dataset/desi/distribution/download>
+   dcat:accessURL  <https://digital-agenda-data.eu/datasets/digital_agenda_scoreboard_key_indicators#download> ;
+   dcterms:license <http://ec.europa.eu/geninfo/legal_notices_en.htm#copyright> .
+ <http://semantic.digital-agenda-data.eu/dataset/desi/distribution/visualisation>
+   dcat:accessURL  <https://digital-agenda-data.eu/datasets/digital_agenda_scoreboard_key_indicators> ;
+   dcterms:license <http://ec.europa.eu/geninfo/legal_notices_en.htm#copyright> .
+}
+
+5. delete old access url's
+
+sparql
+DELETE {
+  graph <http://semantic.digital-agenda-data.eu/dataset/desi> {
+    ?s ?p ?o
+  }
+}
+where {
+  graph ?g {
+    ?s ?p ?o .
+    filter (?s = <http://semantic.digital-agenda-data.eu/dataset/desi/distribution/download>)
+    filter (?o = <http://digital-agenda-data.eu/datasets/digital_agenda_scoreboard_key_indicators#download>)
+    filter (?g = <http://semantic.digital-agenda-data.eu/dataset/desi>)
+  }
+}
+
+sparql
+DELETE {
+  graph <http://semantic.digital-agenda-data.eu/dataset/desi> {
+    ?s ?p ?o
+  }
+}
+where {
+  graph ?g {
+    ?s ?p ?o .
+    filter (?s = <http://semantic.digital-agenda-data.eu/dataset/desi/distribution/visualisation>)
+    filter (?o = <http://digital-agenda-data.eu/datasets/digital_agenda_scoreboard_key_indicators>)
+    filter (?g = <http://semantic.digital-agenda-data.eu/dataset/desi>)
+  }
+}

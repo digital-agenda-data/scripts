@@ -1,9 +1,27 @@
 sparql
-PREFIX dcterms: <http://purl.org/dc/terms/>
+prefix dcat:	<http://www.w3.org/ns/dcat#>
+prefix dcterms:	<http://purl.org/dc/terms/>
+prefix vcard:	<http://www.w3.org/2006/vcard/ns#>
+prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#>
+
 INSERT DATA INTO GRAPH <http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators> 
 { 
  <http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/population/total/habitants/LU/2014>
  sdmx-measure:obsValue
  "549680"^^xsd:double
+}
+
+sparql
+INSERT DATA INTO GRAPH <http://semantic.digital-agenda-data.eu/dataset/digital-agenda-scoreboard-key-indicators> 
+{ 
+ <http://semantic.digital-agenda-data.eu/dataset/digital-agenda-scoreboard-key-indicators>
+   dcterms:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/ANNUAL_2>;
+   dcterms:conformsTo <http://purl.org/linked-data/cube>.
+ <http://semantic.digital-agenda-data.eu/dataset/digital-agenda-scoreboard-key-indicators/distribution/download>
+   dcat:accessURL  <https://digital-agenda-data.eu/datasets/digital_agenda_scoreboard_key_indicators#download> ;
+   dcterms:license <http://ec.europa.eu/geninfo/legal_notices_en.htm#copyright> .
+ <http://semantic.digital-agenda-data.eu/dataset/digital-agenda-scoreboard-key-indicators/distribution/visualisation>
+   dcat:accessURL  <https://digital-agenda-data.eu/datasets/digital_agenda_scoreboard_key_indicators> ;
+   dcterms:license <http://ec.europa.eu/geninfo/legal_notices_en.htm#copyright> .
 }

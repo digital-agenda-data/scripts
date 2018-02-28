@@ -1,0 +1,21 @@
+sparql
+prefix dcat:	<http://www.w3.org/ns/dcat#>
+prefix dcterms:	<http://purl.org/dc/terms/>
+prefix vcard:	<http://www.w3.org/2006/vcard/ns#>
+prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#>
+
+INSERT {
+GRAPH <http://semantic.digital-agenda-data.eu/dataset/digital-agenda-scoreboard-key-indicators> {
+ <http://semantic.digital-agenda-data.eu/dataset/digital-agenda-scoreboard-key-indicators> dcat:contactPoint [
+        a vcard:Organization;
+        vcard:fn "DG CONNECT - Digital Economy and Skills (Unit F.4)" ;
+        vcard:hasEmail <mailto:CNECT-F4@ec.europa.eu> ;
+        vcard:hasURL <https://ec.europa.eu/digital-single-market/en/content/digital-economy-and-skills-unit-f4>;
+        rdfs:label "DG CONNECT - Digital Economy and Skills (Unit F.4)"
+ ]
+}
+}
+WHERE { SELECT * {OPTIONAL {?s ?p ?o} } LIMIT 1 }
+
+
+
