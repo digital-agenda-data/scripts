@@ -5,7 +5,6 @@ for dimension in ${DIMENSIONS}
 do
 	GRAPH="<http://semantic.digital-agenda-data.eu/codelist/${dimension}/>"
 	QUERY="construct {?s ?p ?o}where {graph ${GRAPH} {?s ?p ?o}}"
-	echo $QUERY
 	curl -s --data-urlencode "format=text/plain" --data-urlencode "query=${QUERY}" http://digital-agenda-data.eu/sparql | LC_ALL=C sort -n > dad-${dimension}.nt
 	curl -s --data-urlencode "format=application/x-nice-turtle" --data-urlencode "query=${QUERY}" http://digital-agenda-data.eu/sparql > dad-${dimension}.ttl
 done
@@ -15,4 +14,4 @@ QUERY="construct {?s ?p ?o} where { graph ?g { ?s ?p ?o } filter (?g in (<http:/
 curl -s --data-urlencode "format=text/plain" --data-urlencode "query=${QUERY}" http://digital-agenda-data.eu/sparql | LC_ALL=C sort -n > dad-${dimension}.nt
 curl -s --data-urlencode "format=application/x-nice-turtle" --data-urlencode "query=${QUERY}" http://digital-agenda-data.eu/sparql > dad-${dimension}.ttl
 
-git add -u && git commit -m "Codelist updates" && git pull --rebase && git push
+git add -u && git commit --quiet -m "Codelist updates" > /dev/null && git pull --rebase && git push
