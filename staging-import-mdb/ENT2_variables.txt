@@ -1,0 +1,107 @@
+http://semantic.digital-agenda-data.eu/codelist/indicator/
+http://reference.data.gov.uk/id/gregorian-year/2009
+
+VARIABLES (after 2009)
+=========
+
+e_ade
+e_ads
+e_ads_loc
+e_ads_trk
+e_aeseu
+e_aws
+e_aws_cmp
+e_aws_cown
+e_aws_gt1_b2c_gt10ws
+e_awsval_cmp
+e_awsval_cown
+e_bd
+e_broad
+e_cc
+e_cc_ge_me
+e_crman
+e_ebuy
+e_ebuy2
+e_empmd1_gt0
+e_empmd1_gt20
+e_empmd_gt20
+e_envra
+e_erp
+e_erp1
+e_esell
+e_eturn
+e_fixbb
+e_iacc3g
+e_iacc3g_20
+e_igov
+e_igov2
+e_igov2pr
+e_igov2rt
+e_igov3
+e_igovrt
+e_inv
+e_inv2
+e_inv3sbg_ap_gt0
+e_invsnd
+e_invsndap
+e_ispdf_ge30
+e_ispdfokx
+e_ispdfokx_ge100
+e_it_mext
+e_itsp2
+e_itspvac2
+e_itt2
+e_pmd
+e_pmd_app
+e_ra
+e_rfac
+e_rfac1
+e_rfid
+e_rfid1
+e_rfpsas
+e_rfpsas1
+e_secpol
+e_secpol1
+e_sisc
+e_sisorp
+e_sm1_any
+e_sm1_ge2
+e_sm_any
+e_sm_ge2
+e_web
+e_webf2
+e_wsel25
+e_wsel50 
+p_empmd
+p_empmd1
+p_iacc3g
+p_iuse
+p_mpmd
+
+SPECIAL VARIABLES
+=================
+e_awsww, e_awshm, e_awseu: imported using a different query
+e_ebuy: EU27, EU28 are skipped for years 2011-2014
+
+MAPPING
+========
+e_ebuy2: e_ebuy
+e_envra: e_ra
+e_erp: e_erp1
+e_fixbb: e_broad
+e_iacc3g, e_empmd1_gt0: e_pmd
+e_iacc3g_20, e_empmd1_gt20: e_empmd_gt20
+e_igov2, e_igov3: e_igov
+e_igov2rt: e_igovrt
+e_inv2: e_inv
+e_invsndap, e_inv3sbg_ap_gt0: e_invsnd
+e_rfac1: e_rfac
+e_rfid1: e_rfid
+e_rfpsas1: e_rfpsas
+e_secpol: e_secpol1
+e_sm1_any: e_sm_any
+e_sm1_ge2: e_sm_ge2
+p_iacc3g, p_empmd1: p_empmd
+
+e_awsww, e_awshm, e_awseu: e_aws (as breakdowns)
+

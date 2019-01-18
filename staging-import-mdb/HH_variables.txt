@@ -65,6 +65,11 @@ i_skedu
 pop
 
 
+SPECIAL VARIABLES
+=================
+i_isk_hi, i_isk_me: only collected until 2013 and imported with a different query
+
+
 MAPPING
 ========
 i_iunw1 : i_iunw

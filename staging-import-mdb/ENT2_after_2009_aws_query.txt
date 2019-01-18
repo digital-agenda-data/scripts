@@ -1,0 +1,78 @@
+select
+years.Year as year,
+Countries.ExpCountry as country,
+'e_aws' as variable,
+'Rest_world' as brkdown,
+lcase(Units.ExpUnit) as unit,
+DataWithAggregates.Value as obsValue,
+coalesce(DataWithAggregates.Flags, '') as flag,
+coalesce(Notes.Note, '') as note
+
+from DataWithAggregates
+  join Years on DataWithAggregates.IdYear = Years.IdYear
+  join Variables on DataWithAggregates.IdVariable = Variables.IdVariable
+  join BrkDwns on DataWithAggregates.IdBrkDwn = BrkDwns.IdBrkDwn
+  join Countries on DataWithAggregates.IdCountry = Countries.IdCountry
+  join Units on DataWithAggregates.IdUnit = Units.IdUnit
+  left outer join Notes on DataWithAggregates.IdNote = Notes.IdNote
+
+where
+
+Countries.ExpCountry not in ('EA', 'EA16', 'EU15', 'EU25')
+AND lcase(Units.ExpUnit) = 'pc_ent'
+AND lcase(BrkDwns.ExpBrkDwn) = '10_c10_s951_xk'
+AND lcase(Variables.ExpVariable) = 'e_awsww'
+
+UNION ALL
+
+select
+years.Year as year,
+Countries.ExpCountry as country,
+'e_aws' as variable,
+'Own_country' as brkdown,
+lcase(Units.ExpUnit) as unit,
+DataWithAggregates.Value as obsValue,
+coalesce(DataWithAggregates.Flags, '') as flag,
+coalesce(Notes.Note, '') as note
+
+from DataWithAggregates
+  join Years on DataWithAggregates.IdYear = Years.IdYear
+  join Variables on DataWithAggregates.IdVariable = Variables.IdVariable
+  join BrkDwns on DataWithAggregates.IdBrkDwn = BrkDwns.IdBrkDwn
+  join Countries on DataWithAggregates.IdCountry = Countries.IdCountry
+  join Units on DataWithAggregates.IdUnit = Units.IdUnit
+  left outer join Notes on DataWithAggregates.IdNote = Notes.IdNote
+
+where
+
+Countries.ExpCountry not in ('EA', 'EA16', 'EU15', 'EU25')
+AND lcase(Units.ExpUnit) = 'pc_ent'
+AND lcase(BrkDwns.ExpBrkDwn) = '10_c10_s951_xk'
+AND lcase(Variables.ExpVariable) = 'e_awshm'
+
+UNION ALL
+
+select
+years.Year as year,
+Countries.ExpCountry as country,
+'e_aws' as variable,
+'Other_EU_countries' as brkdown,
+lcase(Units.ExpUnit) as unit,
+DataWithAggregates.Value as obsValue,
+coalesce(DataWithAggregates.Flags, '') as flag,
+coalesce(Notes.Note, '') as note
+
+from DataWithAggregates
+  join Years on DataWithAggregates.IdYear = Years.IdYear
+  join Variables on DataWithAggregates.IdVariable = Variables.IdVariable
+  join BrkDwns on DataWithAggregates.IdBrkDwn = BrkDwns.IdBrkDwn
+  join Countries on DataWithAggregates.IdCountry = Countries.IdCountry
+  join Units on DataWithAggregates.IdUnit = Units.IdUnit
+  left outer join Notes on DataWithAggregates.IdNote = Notes.IdNote
+
+where
+
+Countries.ExpCountry not in ('EA', 'EA16', 'EU15', 'EU25')
+AND lcase(Units.ExpUnit) = 'pc_ent'
+AND lcase(BrkDwns.ExpBrkDwn) = '10_c10_s951_xk'
+AND lcase(Variables.ExpVariable) = 'e_awseu'

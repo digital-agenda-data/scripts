@@ -1,0 +1,65 @@
+select
+years.Year as year,
+
+either(equ(ucase(Countries.ExpCountry),'GR'), 'EL', ucase(Countries.ExpCountry)) as country,
+  either(equ(lcase(Variables.ExpVariable), 'e_erp'), 'e_erp1',
+  either(equ(Variables.ExpVariable, 'e_itsp'), 'e_itsp2',
+  either(equ(Variables.ExpVariable, 'e_itspvac'), 'e_itspvac2',
+  either(equ(Variables.ExpVariable, 'e_envra'), 'e_ra',
+  either(equ(Variables.ExpVariable, 'e_secpol'), 'e_secpol1',
+  lcase(Variables.ExpVariable)
+))))) as variable,
+
+either(equ(lcase(BrkDwns.ExpBrkDwn), '10_dfghiko'), 'ent_all_xfin',
+  either(equ(lcase(BrkDwns.ExpBrkDwn), 'sm_dfghiko'), 'ent_sm_xfin',
+  either(equ(lcase(BrkDwns.ExpBrkDwn), 'l_dfghiko'), 'ent_l_xfin',
+  either(equ(lcase(BrkDwns.ExpBrkDwn), 'm_dfghiko'), 'ent_m_xfin',
+  either(equ(lcase(BrkDwns.ExpBrkDwn), 's_dfghiko'), 'ent_s_xfin',
+lcase(BrkDwns.ExpBrkDwn)))))) as brkdown,
+
+either(equ(lcase(Units.ExpUnit), 'pc_ent_itsprcr'), 'pc_ent_itsprcr2',
+lcase(Units.ExpUnit)) as unit,
+
+DataWithAggregates.Value as obsValue,
+coalesce(DataWithAggregates.Flags, '') as flag,
+coalesce(Notes.Note, '') as note
+
+from DataWithAggregates
+  join Years on DataWithAggregates.IdYear = Years.IdYear
+  join Variables on DataWithAggregates.IdVariable = Variables.IdVariable
+  join BrkDwns on DataWithAggregates.IdBrkDwn = BrkDwns.IdBrkDwn
+  join Countries on DataWithAggregates.IdCountry = Countries.IdCountry
+  join Units on DataWithAggregates.IdUnit = Units.IdUnit
+  left outer join Notes on DataWithAggregates.IdNote = Notes.IdNote
+
+where
+
+ucase(Countries.ExpCountry) not in ('EA', 'EA16', 'EU15', 'EU25') AND
+Years.Year < 2009 AND
+lcase(BrkDwns.ExpBrkDwn) in ('10_dfghiko', 'sm_dfghiko', 'l_dfghiko', 'm_dfghiko', 's_dfghiko' ) AND
+lcase(Units.ExpUnit) in ('pc_ent', 'pc_turn', 'pc_ent_itsprcr') AND
+lcase(Variables.ExpVariable) in (
+  'e_ade',
+  'e_aws_gt1_b2c_gt10ws',
+  'e_broad',
+  'e_crman',
+  'e_ebuy',
+  'e_erp',
+  'e_esell',
+  'e_eturn',
+  'e_igov',
+  'e_igov2pr',
+  'e_igovrt',
+  'e_inv',
+  'e_ispdf_ge30',
+  'e_it_mext',
+  'e_itspvac',
+  'e_itt2',
+  'e_rfid',
+  'e_secpol',
+  'e_secpol1',
+  'e_sisc',
+  'e_sisorp',
+  'e_web','e_itsp',
+  'e_webf2'
+)
