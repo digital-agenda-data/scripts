@@ -1,5 +1,3 @@
-HH20122017_melis_180115_101429
-
 select
 years.Year as year,
 upper(Countries.ExpCountry) as country,
