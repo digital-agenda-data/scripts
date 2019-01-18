@@ -1,0 +1,119 @@
+select 
+    years.Year as year, 
+    Countries.ExpCountry as country, 
+    either(starts_with(upper(Variables.ExpVariable), 'I_IUPORT1'), 'i_iuport', either(starts_with(upper(Variables.ExpVariable), 'I_IU3G1'), 'i_iu3g', lower(Variables.ExpVariable))) as variable, 
+    lower(BrkDwns.ExpBrkDwn) as brkdown, 
+    lower(Units.ExpUnit) as unit, 
+    DataWithAggregates.Value as value, 
+    coalesce(DataWithAggregates.Flags, '') as flag, 
+    coalesce(Notes.Note, '') as note 
+from 
+    DataWithAggregates 
+    join Years on DataWithAggregates.IdYear = Years.IdYear 
+    join Variables on DataWithAggregates.IdVariable = Variables.IdVariable 
+    join BrkDwns on DataWithAggregates.IdBrkDwn = BrkDwns.IdBrkDwn 
+    join Countries on DataWithAggregates.IdCountry = Countries.IdCountry 
+    join Units on DataWithAggregates.IdUnit = Units.IdUnit 
+    left outer join Notes on DataWithAggregates.IdNote = Notes.IdNote 
+where 
+ Years.IdYear <= 12 AND ( 
+ (upper(Variables.ExpVariable)='H_IACC' AND upper(BrkDwns.ExpBrkDwn)='TOTAL' AND upper(Units.ExpUnit)='PC_HH') OR 
+ (upper(Variables.ExpVariable)='H_IACC' AND upper(BrkDwns.ExpBrkDwn)='TOTAL' AND upper(Units.ExpUnit)='PC_HH') OR 
+ (upper(Variables.ExpVariable)='I_IUIF' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUIF' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_IU3') OR 
+ (upper(Variables.ExpVariable)='I_IUGM' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUGM' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_IU3') OR 
+ (upper(Variables.ExpVariable)='I_IUNW' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUNW' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_IU3') OR 
+ (upper(Variables.ExpVariable)='I_IUSELL' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUSELL' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_IU3') OR 
+ (upper(Variables.ExpVariable)='I_IGOVRT' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IGOVRT' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_IU3') OR 
+ (upper(Variables.ExpVariable)='I_IUGOV' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUGOV' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_IU3') OR 
+ (upper(Variables.ExpVariable)='H_BROAD' AND upper(BrkDwns.ExpBrkDwn)='TOTAL' AND upper(Units.ExpUnit)='PC_HH') OR 
+ (upper(Variables.ExpVariable)='I_CWEB' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_CPRG' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUSE' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUSE' AND upper(BrkDwns.ExpBrkDwn)='RF_GE1' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IDAY' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUBK' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUBK' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_IU3') OR 
+ (upper(Variables.ExpVariable)='I_IHIF' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IHIF' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_IU3') OR 
+ (upper(Variables.ExpVariable)='I_IUJOB' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUJOB' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_IU3') OR 
+ (upper(Variables.ExpVariable)='I_BLT12' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_BLT12' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_ILT12') OR 
+ (upper(Variables.ExpVariable)='I_BGOODO' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_BGOODO' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_ILT12') OR 
+ (upper(Variables.ExpVariable)='I_IUX' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_SKEDU' AND upper(BrkDwns.ExpBrkDwn)='Y16_24' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_SKEDU' AND upper(BrkDwns.ExpBrkDwn)='Y25_54' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable) in ('I_IU3G', 'I_IU3G1') AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUEDUIF' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUEDUIF' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_IU3') OR 
+ (upper(Variables.ExpVariable)='I_IUOLC' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUOLC' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_IU3') OR 
+ (upper(Variables.ExpVariable) in ('I_IUPORT', 'I_IUPORT1') AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_BFEU' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_BFEU' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_ILT12') OR 
+ (upper(Variables.ExpVariable)='I_IGOV12RT' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUGOV12' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUUPL' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUUPL' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_IU3') OR 
+ (upper(Variables.ExpVariable)='I_IUSNET' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUSNET' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_IU3') OR 
+ (upper(Variables.ExpVariable)='I_IUVOTE' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND') OR 
+ (upper(Variables.ExpVariable)='I_IUVOTE' AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND_IU3') OR 
+ (upper(Variables.ExpVariable)='I_CISK_SFJOBX' AND upper(BrkDwns.ExpBrkDwn)='SAL_SELF_FAM' AND upper(Units.ExpUnit)='PC_IND') 
+) 
+AND upper(Countries.ExpCountry) not in ('EA', 'EA16', 'EU15', 'EU25') 
+
+union all 
+
+select 
+    years.Year as year, 
+    Countries.ExpCountry as country, 
+    'i_csk_ge_me' as variable, 
+    lower(BrkDwns.ExpBrkDwn) as brkdown, 
+    lower(Units.ExpUnit) as unit, 
+    sum(DataWithAggregates.Value) as value, 
+    max(coalesce(DataWithAggregates.Flags, '')) as flag, 
+    max(coalesce(Notes.Note, '')) as note 
+from 
+    DataWithAggregates 
+    join Years on DataWithAggregates.IdYear = Years.IdYear 
+    join Variables on DataWithAggregates.IdVariable = Variables.IdVariable 
+    join BrkDwns on DataWithAggregates.IdBrkDwn = BrkDwns.IdBrkDwn 
+    join Countries on DataWithAggregates.IdCountry = Countries.IdCountry 
+    join Units on DataWithAggregates.IdUnit = Units.IdUnit 
+    left outer join Notes on DataWithAggregates.IdNote = Notes.IdNote 
+where 
+    upper(Variables.ExpVariable) in ('I_CSK_HI', 'I_CSK_ME') AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND' 
+    AND upper(Countries.ExpCountry) not in ('EA', 'EA16', 'EU15', 'EU25') 
+group by Years.Year, Countries.ExpCountry, BrkDwns.ExpBrkDwn, Units.ExpUnit 
+
+union all 
+
+select 
+    years.Year as year, 
+    Countries.ExpCountry as country, 
+    'i_isk_ge_me' as variable, 
+    lower(BrkDwns.ExpBrkDwn) as brkdown, 
+    lower(Units.ExpUnit) as unit, 
+    sum(DataWithAggregates.Value) as value, 
+    max(coalesce(DataWithAggregates.Flags, '')) as flag, 
+    max(coalesce(Notes.Note, '')) as note 
+from 
+    DataWithAggregates 
+    join Years on DataWithAggregates.IdYear = Years.IdYear 
+    join Variables on DataWithAggregates.IdVariable = Variables.IdVariable 
+    join BrkDwns on DataWithAggregates.IdBrkDwn = BrkDwns.IdBrkDwn 
+    join Countries on DataWithAggregates.IdCountry = Countries.IdCountry 
+    join Units on DataWithAggregates.IdUnit = Units.IdUnit 
+    left outer join Notes on DataWithAggregates.IdNote = Notes.IdNote 
+where 
+    upper(Variables.ExpVariable) in ('I_ISK_HI', 'I_ISK_ME') AND upper(BrkDwns.ExpBrkDwn)='IND_TOTAL' AND upper(Units.ExpUnit)='PC_IND' 
+    AND upper(Countries.ExpCountry) not in ('EA', 'EA16', 'EU15', 'EU25') 
+group by Years.Year, Countries.ExpCountry, BrkDwns.ExpBrkDwn, Units.ExpUnit

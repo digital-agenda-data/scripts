@@ -1,0 +1,83 @@
+select 
+    years.Year as year, 
+    Countries.ExpCountry as country, 
+    either(equ(ucase(Variables.ExpVariable), 'E_IGOV2'), 'e_igov', either(equ(ucase(Variables.ExpVariable), 'E_IGOV3'), 'e_igov', either(equ(ucase(Variables.ExpVariable), 'E_IGOV2RT'), 'e_igovrt', either(equ(ucase(Variables.ExpVariable), 'E_INV2'), 'e_inv', lcase(Variables.ExpVariable))))) as variable, 
+    either(equ(lcase(BrkDwns.ExpBrkDwn), '10_c10_s951_xk'), 'ent_all_xfin', either(equ(ucase(BrkDwns.ExpBrkDwn), '10_C10_N82_XK'), 'ent_all_xfin', either(equ(lcase(BrkDwns.ExpBrkDwn), 'sm_c10_s951_xk'), 'ent_sm_xfin', either(equ(lcase(BrkDwns.ExpBrkDwn), 'sm_c10_n82_xk'), 'ent_sm_xfin', either(equ(lcase(BrkDwns.ExpBrkDwn), 'l_c10_s951_xk'), 'ent_l_xfin', either(equ(lcase(BrkDwns.ExpBrkDwn), 'l_c10_n82_xk'), 'ent_l_xfin', lcase(BrkDwns.ExpBrkDwn))))))) as brkdown, 
+    lcase(Units.ExpUnit) as unit, 
+    DataWithAggregates.Value as obsValue, 
+    coalesce(DataWithAggregates.Flags, '') as flag, 
+    coalesce(Notes.Note, '') as note 
+from 
+    DataWithAggregates 
+    join Years on DataWithAggregates.IdYear = Years.IdYear 
+    join Variables on DataWithAggregates.IdVariable = Variables.IdVariable 
+    join BrkDwns on DataWithAggregates.IdBrkDwn = BrkDwns.IdBrkDwn 
+    join Countries on DataWithAggregates.IdCountry = Countries.IdCountry 
+    join Units on DataWithAggregates.IdUnit = Units.IdUnit 
+    left outer join Notes on DataWithAggregates.IdNote = Notes.IdNote 
+where 
+( 
+(lcase(Variables.ExpVariable)='e_adesucu' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable)='e_broad' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable)='e_crman' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable)='e_ebuy' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable)='e_ebuy' AND lcase(BrkDwns.ExpBrkDwn)='sm_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable)='e_ebuy' AND lcase(BrkDwns.ExpBrkDwn)='l_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable)='e_esell' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable)='e_esell' AND lcase(BrkDwns.ExpBrkDwn)='sm_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable)='e_esell' AND lcase(BrkDwns.ExpBrkDwn)='l_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable)='e_eturn' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_TURN' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable)='e_iacc3g' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(ucase(Variables.ExpVariable) in ('E_IGOV3', 'E_IGOV2', 'E_IGOV') AND lcase(BrkDwns.ExpBrkDwn)='10_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable)='e_igov2pr' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable) in ('e_igovrt', 'e_igov2rt') AND lcase(BrkDwns.ExpBrkDwn)='10_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable) in ('e_inv', 'e_inv2') AND lcase(BrkDwns.ExpBrkDwn)='10_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable)='e_rfid' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable)='e_sisc' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable)='e_sisorp' AND lcase(BrkDwns.ExpBrkDwn)='l_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) OR 
+(lcase(Variables.ExpVariable)='e_sisorp' AND lcase(BrkDwns.ExpBrkDwn)='sm_c10_s951_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year >= 2010) 
+) 
+AND Countries.ExpCountry not in ('EA', 'EA16', 'EU15', 'EU25') 
+
+union all 
+
+select 
+    years.Year as year, 
+    Countries.ExpCountry as country, 
+    either(equ(ucase(Variables.ExpVariable), 'E_IGOV2'), 'e_igov', either(equ(ucase(Variables.ExpVariable), 'E_IGOV3'), 'e_igov', either(equ(ucase(Variables.ExpVariable), 'E_IGOV2RT'), 'e_igovrt', either(equ(ucase(Variables.ExpVariable), 'E_INV2'), 'e_inv', lcase(Variables.ExpVariable))))) as variable, 
+    either(equ(lcase(BrkDwns.ExpBrkDwn), '10_c10_s951_xk'), 'ent_all_xfin', either(equ(ucase(BrkDwns.ExpBrkDwn), '10_C10_N82_XK'), 'ent_all_xfin', either(equ(lcase(BrkDwns.ExpBrkDwn), 'sm_c10_s951_xk'), 'ent_sm_xfin', either(equ(lcase(BrkDwns.ExpBrkDwn), 'sm_c10_n82_xk'), 'ent_sm_xfin', either(equ(lcase(BrkDwns.ExpBrkDwn), 'l_c10_s951_xk'), 'ent_l_xfin', either(equ(lcase(BrkDwns.ExpBrkDwn), 'l_c10_n82_xk'), 'ent_l_xfin', lcase(BrkDwns.ExpBrkDwn))))))) as brkdown, 
+    lcase(Units.ExpUnit) as unit, 
+    DataWithAggregates.Value as obsValue, 
+    coalesce(DataWithAggregates.Flags, '') as flag, 
+    coalesce(Notes.Note, '') as note 
+from 
+    DataWithAggregates 
+    join Years on DataWithAggregates.IdYear = Years.IdYear 
+    join Variables on DataWithAggregates.IdVariable = Variables.IdVariable 
+    join BrkDwns on DataWithAggregates.IdBrkDwn = BrkDwns.IdBrkDwn 
+    join Countries on DataWithAggregates.IdCountry = Countries.IdCountry 
+    join Units on DataWithAggregates.IdUnit = Units.IdUnit 
+    left outer join Notes on DataWithAggregates.IdNote = Notes.IdNote 
+where 
+( 
+(lcase(Variables.ExpVariable)='e_adesucu' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable)='e_broad' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable)='e_crman' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable)='e_ebuy' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable)='e_ebuy' AND lcase(BrkDwns.ExpBrkDwn)='sm_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable)='e_ebuy' AND lcase(BrkDwns.ExpBrkDwn)='l_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable)='e_esell' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable)='e_esell' AND lcase(BrkDwns.ExpBrkDwn)='sm_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable)='e_esell' AND lcase(BrkDwns.ExpBrkDwn)='l_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable)='e_eturn' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_TURN' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable)='e_iacc3g' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(ucase(Variables.ExpVariable) in ('E_IGOV3', 'E_IGOV2', 'E_IGOV') AND lcase(BrkDwns.ExpBrkDwn)='10_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable)='e_igov2pr' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable) in ('e_igovrt', 'e_igov2rt') AND lcase(BrkDwns.ExpBrkDwn)='10_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable) in ('e_inv', 'e_inv2') AND lcase(BrkDwns.ExpBrkDwn)='10_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable)='e_rfid' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable)='e_sisc' AND lcase(BrkDwns.ExpBrkDwn)='10_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable)='e_sisorp' AND lcase(BrkDwns.ExpBrkDwn)='l_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) OR 
+(lcase(Variables.ExpVariable)='e_sisorp' AND lcase(BrkDwns.ExpBrkDwn)='sm_c10_n82_xk' AND ucase(Units.ExpUnit)='PC_ENT' and Years.Year = 2009) 
+) 
+AND Countries.ExpCountry not in ('EA', 'EA16', 'EU15', 'EU25')

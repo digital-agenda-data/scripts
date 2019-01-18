@@ -1,0 +1,78 @@
+http://semantic.digital-agenda-data.eu/codelist/indicator/
+
+VARIABLES
+=========
+
+h_bbfix
+h_broad
+h_iacc
+h_xcost
+househ
+i_atsw
+i_barr1x
+i_bfeu
+i_bgood
+i_bgoodo
+i_blt12
+i_bpgood
+i_bserv
+i_cc
+i_cook
+i_cprg
+i_cprg1
+i_cweb
+i_iday
+i_igov12rt
+i_igov12rt
+i_igovrt
+i_ihif
+i_ilt12
+i_iu3
+i_iu3g
+i_iu3g1
+i_iubk
+i_iueduif
+i_iugm
+i_iugmv
+i_iugov
+i_iugov12
+i_iuhd_mphbb
+i_iuif
+i_iujob
+i_iumapp
+i_iumc
+i_iump_mph
+i_iunw
+i_iunw1
+i_iuolc
+i_iuph
+i_iuph1
+i_iuport
+i_iuport1
+i_iuse
+i_iusell
+i_iusnet
+i_iuupl
+i_iuvod
+i_iuvote
+i_iux
+i_piacadv
+i_sbgood
+i_secfl
+i_secpif1
+i_secvir1
+i_skedu
+pop
+
+
+MAPPING
+========
+i_iunw1 : i_iunw
+i_iuport, i_iuport1 : i_iumc
+i_iuhd_mphbb, i_iu3g1, i_iump_mph : i_iu3g
+i_iuph : i_iuph1
+i_iugmv : i_iugm
+i_cprg1 : i_cprg
+
+
+i_isk_hi, i_isk_me: i_isk_ge_me

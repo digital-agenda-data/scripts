@@ -1,0 +1,48 @@
+select 
+    DataWithAggregates.IdYear as year, 
+    either(equ(ucase(Countries.EUCountry),'GR'), 'EL', ucase(Countries.EUCountry)) as country, 
+    either( 
+      equ(lcase(Variables.EuVariable), 'e_erp'), 'e_erp1', 
+      either( 
+        equ(Variables.EuVariable, 'e_itsp'), 'e_itsp2', 
+        either( 
+          equ(Variables.EuVariable, 'e_itspvac'), 'e_itspvac2', 
+          either( 
+            equ(Variables.EuVariable, 'e_envra'), 'e_ra', 
+            lcase(Variables.EuVariable) 
+          ) 
+        ) 
+      ) 
+    ) as variable, 
+    either( 
+      equ(lcase(BrkDwns.EUBrkDwn), '10_dfghiko'), 'ent_all_xfin', 
+      either( 
+        equ(lcase(BrkDwns.EUBrkDwn), 'sm_dfghiko'), 'ent_sm_xfin', 
+        either( 
+          equ(lcase(BrkDwns.EUBrkDwn), 'l_dfghiko'), 'ent_l_xfin', 
+          lcase(BrkDwns.EUBrkDwn) 
+        ) 
+      ) 
+    ) as brkdown, 
+    either( 
+      equ(lcase(Units.EuUnit), 'pc_ent_itsprcr'), 'pc_ent_itsprcr2', 
+      lcase(Units.EuUnit) 
+    ) as unit, 
+    DataWithAggregates.Value as obsValue, 
+    coalesce(DataWithAggregates.Flags, '') as flag, 
+    coalesce(Notes.Note, '') as note 
+from 
+    DataWithAggregates 
+    join Variables on DataWithAggregates.IdVariable = Variables.IdVariable 
+    join BrkDwns on DataWithAggregates.IdBrkDwn = BrkDwns.IdBrkDwn 
+    join Countries on DataWithAggregates.IdCountry = Countries.IdCountry 
+    join Units on DataWithAggregates.IdUnit = Units.IdUnit 
+    left outer join Notes on DataWithAggregates.IdNote = Notes.IdNote 
+where 
+    ucase(Countries.EUCountry) not in ('EA', 'EA16', 'EU15', 'EU25') AND 
+    IdYear < 2009 AND 
+    lcase(BrkDwns.EUBrkDwn) in ('10_dfghiko', 'sm_dfghiko', 'l_dfghiko' ) AND 
+    lcase(Units.EUUnit) in ('pc_ent', 'pc_turn', 'pc_ent_itsprcr') AND 
+    lcase(Variables.EUVariable) in ('e_broad', 'e_ade', 'e_crman', 'e_esell', 
+      'e_ebuy', 'e_igov', 'e_igovrt', 'e_igov2pr', 'e_inv', 'e_rfid', 'e_sisc', 
+      'e_sisorp', 'e_erp', 'e_web', 'e_itsp', 'e_itspvac', 'e_eturn' )
