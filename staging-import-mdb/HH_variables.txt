@@ -62,7 +62,6 @@ i_secfl
 i_secpif1
 i_secvir1
 i_skedu
-pop
 
 
 SPECIAL VARIABLES
