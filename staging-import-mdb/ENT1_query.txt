@@ -1,14 +1,19 @@
 select
 years.Year as year,
 
-either(equ(ucase(Countries.ExpCountry),'GR'), 'EL', ucase(Countries.ExpCountry)) as country,
-  either(equ(lcase(Variables.ExpVariable), 'e_erp'), 'e_erp1',
+either(
+  equ(Countries.ExpCountry,'GR'), 'EL',
+  either(equ(Countries.ExpCountry, 'EU27'), 'EU',
+  either(equ(Countries.ExpCountry, 'EU28'), 'EU',
+  Countries.ExpCountry
+))) as country,
+
+either(equ(lcase(Variables.ExpVariable), 'e_erp'), 'e_erp1',
   either(equ(Variables.ExpVariable, 'e_itsp'), 'e_itsp2',
   either(equ(Variables.ExpVariable, 'e_itspvac'), 'e_itspvac2',
   either(equ(Variables.ExpVariable, 'e_envra'), 'e_ra',
-  either(equ(Variables.ExpVariable, 'e_secpol'), 'e_secpol1',
   lcase(Variables.ExpVariable)
-))))) as variable,
+)))) as variable,
 
 either(equ(lcase(BrkDwns.ExpBrkDwn), '10_dfghiko'), 'ent_all_xfin',
   either(equ(lcase(BrkDwns.ExpBrkDwn), 'sm_dfghiko'), 'ent_sm_xfin',
@@ -34,13 +39,23 @@ from DataWithAggregates
 
 where
 
-ucase(Countries.ExpCountry) not in ('EA', 'EA16', 'EU15', 'EU25') AND
-Years.Year < 2009 AND
-lcase(BrkDwns.ExpBrkDwn) in ('10_dfghiko', 'sm_dfghiko', 'l_dfghiko', 'm_dfghiko', 's_dfghiko' ) AND
-lcase(Units.ExpUnit) in ('pc_ent', 'pc_turn', 'pc_ent_itsprcr') AND
-lcase(Variables.ExpVariable) in (
+(
+  Countries.ExpCountry in ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+  OR Countries.ExpCountry = 'EU27' AND Years.Year < '2007'
+)
+AND Years.Year < '2009'
+AND lcase(BrkDwns.ExpBrkDwn) in (
+  '10_dfghiko',
+  'sm_dfghiko',
+  'l_dfghiko',
+  'm_dfghiko',
+  's_dfghiko'
+) AND lcase(Units.ExpUnit) in (
+  'pc_ent',
+  'pc_turn',
+  'pc_ent_itsprcr'
+) AND lcase(Variables.ExpVariable) in (
   'e_ade',
-  'e_aws_gt1_b2c_gt10ws',
   'e_broad',
   'e_crman',
   'e_ebuy',
@@ -48,18 +63,11 @@ lcase(Variables.ExpVariable) in (
   'e_esell',
   'e_eturn',
   'e_igov',
-  'e_igov2pr',
   'e_igovrt',
   'e_inv',
-  'e_ispdf_ge30',
-  'e_it_mext',
   'e_itspvac',
-  'e_itt2',
-  'e_rfid',
-  'e_secpol',
-  'e_secpol1',
   'e_sisc',
   'e_sisorp',
-  'e_web','e_itsp',
-  'e_webf2'
+  'e_web',
+  'e_itsp'
 )

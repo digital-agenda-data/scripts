@@ -24,10 +24,10 @@ from DataWithAggregates
 where
 
 lcase(Variables.ExpVariable) in ('e_ebuy') AND
-upper(Countries.ExpCountry) = 'EU28' AND
+Countries.ExpCountry = 'EU28' AND
 lcase(Units.ExpUnit) in (
 'pc_ent', 'pc_turn', 'pc_ent_itsprcr2', 'pc_emp', 'pc_emp_pmd'
-) AND Years.Year > 2009 AND Years.Year < 2014
+) AND Years.Year > '2009' AND Years.Year < '2014'
 AND lcase(BrkDwns.ExpBrkDwn) in (
   '10_c10_18',
   '10_c19_23',

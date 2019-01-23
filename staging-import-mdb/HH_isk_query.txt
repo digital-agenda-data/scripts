@@ -1,6 +1,10 @@
 select
 years.Year as year,
-upper(Countries.ExpCountry) as country,
+
+case upper(Countries.ExpCountry)
+  when 'EU28' then 'EU'
+  else upper(Countries.ExpCountry) end as country,
+
 'i_isk_ge_me' as variable,
 case lower(BrkDwns.ExpBrkDwn)
   when 'total' then 'hh_total'

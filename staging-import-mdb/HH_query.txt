@@ -1,9 +1,10 @@
 select
 years.Year as year,
 
-case upper(Countries.ExpCountry)
+case Countries.ExpCountry
+  when 'EU27' then 'EU'
   when 'EU28' then 'EU'
-  else upper(Countries.ExpCountry) end as country,
+  else Countries.ExpCountry end as country,
 
 case lower(Variables.ExpVariable)
   when 'i_iunw1' then 'i_iunw'
@@ -40,8 +41,10 @@ from DataWithAggregates
   left outer join Notes on DataWithAggregates.IdNote = Notes.IdNote
 
 where
-
-upper(Countries.ExpCountry) IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+(
+  Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+  OR Countries.ExpCountry = 'EU27' AND Years.Year < '2007'
+)
 
 AND lower(Units.ExpUnit) IN (
   'pc_ind_blt12',

@@ -1,9 +1,9 @@
 select
 years.Year as year,
 
-case upper(Countries.ExpCountry)
+case Countries.ExpCountry
   when 'EU28' then 'EU'
-  else upper(Countries.ExpCountry) end as country,
+  else Countries.ExpCountry end as country,
 
 either(equ(lcase(Variables.ExpVariable), 'e_igov2'), 'e_igov',
   either(equ(lcase(Variables.ExpVariable), 'e_igov3'), 'e_igov',
@@ -42,7 +42,7 @@ from DataWithAggregates
 
 where
 
-upper(Countries.ExpCountry) in ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+Countries.ExpCountry in ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
 AND lcase(Units.ExpUnit) in (
   'pc_ent',
   'pc_turn',
@@ -50,7 +50,7 @@ AND lcase(Units.ExpUnit) in (
   'pc_emp',
   'pc_emp_pmd',
   'pc_ent_aesell'
-) AND Years.Year = 2009 
+) AND Years.Year = '2009'
 
 AND lcase(BrkDwns.ExpBrkDwn) in (
   '10_c10_n82_xk',
