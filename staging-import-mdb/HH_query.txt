@@ -1,6 +1,10 @@
 select
 years.Year as year,
-upper(Countries.ExpCountry) as country,
+
+case upper(Countries.ExpCountry)
+  when 'EU28' then 'EU'
+  else upper(Countries.ExpCountry) end as country,
+
 case lower(Variables.ExpVariable)
   when 'i_iunw1' then 'i_iunw'
   when 'i_iuport1' then 'i_iumc'

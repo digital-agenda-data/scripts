@@ -2,7 +2,7 @@
 
 select
 years.Year as year,
-upper(Countries.ExpCountry) as country,
+'EU' as country,
 lcase(Variables.ExpVariable) as variable,
 either(equ(lcase(BrkDwns.ExpBrkDwn), '10_c10_s951_xk'), 'ent_all_xfin',
   either(equ(lcase(BrkDwns.ExpBrkDwn), 'sm_c10_s951_xk'), 'ent_sm_xfin',

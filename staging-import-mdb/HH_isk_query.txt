@@ -25,7 +25,7 @@ from DataWithAggregates
 
 where
 
-upper(Countries.ExpCountry) IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+upper(Countries.ExpCountry) IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK')
 AND lower(Units.ExpUnit) IN ('mio_ind', 'pc_ind', 'pc_ind_iu3') 
 AND lower(Variables.ExpVariable) in ('i_isk_hi', 'i_isk_me') 
 AND lower(BrkDwns.ExpBrkDwn) in ('ind_total', 'hhi_q1', 'hhi_q2', 'hhi_q3', 'hhi_q4', 'y16_24', 'y25_54', 'y25_64', 'y55_74',
@@ -38,7 +38,7 @@ union all
 
 select
 years.Year as year,
-'EU28' as country,
+'EU' as country,
 'i_isk_ge_me' as variable,
 case lower(BrkDwns.ExpBrkDwn)
   when 'total' then 'hh_total'
