@@ -37,7 +37,9 @@ from DataWithAggregates
 
 where
 
-lower(Units.ExpUnit) IN (
+upper(Countries.ExpCountry) IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+
+AND lower(Units.ExpUnit) IN (
   'pc_ind_blt12',
   'mio_hh',
   'mio_ind',
@@ -46,7 +48,8 @@ lower(Units.ExpUnit) IN (
   'pc_ind_ilt12',
   'pc_ind_iu3',
   'pc_igov12nrt',
-) AND upper(Countries.ExpCountry) not in ('EA', 'EA16', 'EU15', 'EU25', 'EU27') AND
+) AND
+
 (
   lower(Variables.ExpVariable) IN (
     'h_bbfix',

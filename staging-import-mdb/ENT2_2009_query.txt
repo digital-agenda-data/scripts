@@ -1,6 +1,6 @@
 select
 years.Year as year,
-Countries.ExpCountry as country,
+upper(Countries.ExpCountry) as country,
 either(equ(lcase(Variables.ExpVariable), 'e_igov2'), 'e_igov',
   either(equ(lcase(Variables.ExpVariable), 'e_igov3'), 'e_igov',
   either(equ(lcase(Variables.ExpVariable), 'e_igov2rt'), 'e_igovrt',
@@ -38,7 +38,7 @@ from DataWithAggregates
 
 where
 
-Countries.ExpCountry not in ('EA', 'EA16', 'EU15', 'EU25')
+upper(Countries.ExpCountry) in ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
 AND lcase(Units.ExpUnit) in (
   'pc_ent',
   'pc_turn',

@@ -1,6 +1,6 @@
 select
 years.Year as year,
-Countries.ExpCountry as country,
+upper(Countries.ExpCountry) as country,
 'e_aws' as variable,
 'Rest_world' as brkdown,
 lcase(Units.ExpUnit) as unit,
@@ -18,7 +18,7 @@ from DataWithAggregates
 
 where
 
-Countries.ExpCountry not in ('EA', 'EA16', 'EU15', 'EU25')
+upper(Countries.ExpCountry) IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
 AND lcase(Units.ExpUnit) = 'pc_ent'
 AND lcase(BrkDwns.ExpBrkDwn) = '10_c10_s951_xk'
 AND lcase(Variables.ExpVariable) = 'e_awsww'
@@ -27,7 +27,7 @@ UNION ALL
 
 select
 years.Year as year,
-Countries.ExpCountry as country,
+upper(Countries.ExpCountry) as country,
 'e_aws' as variable,
 'Own_country' as brkdown,
 lcase(Units.ExpUnit) as unit,
@@ -45,7 +45,7 @@ from DataWithAggregates
 
 where
 
-Countries.ExpCountry not in ('EA', 'EA16', 'EU15', 'EU25')
+upper(Countries.ExpCountry) IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
 AND lcase(Units.ExpUnit) = 'pc_ent'
 AND lcase(BrkDwns.ExpBrkDwn) = '10_c10_s951_xk'
 AND lcase(Variables.ExpVariable) = 'e_awshm'
@@ -54,7 +54,7 @@ UNION ALL
 
 select
 years.Year as year,
-Countries.ExpCountry as country,
+upper(Countries.ExpCountry) as country,
 'e_aws' as variable,
 'Other_EU_countries' as brkdown,
 lcase(Units.ExpUnit) as unit,
@@ -72,7 +72,8 @@ from DataWithAggregates
 
 where
 
-Countries.ExpCountry not in ('EA', 'EA16', 'EU15', 'EU25')
+upper(Countries.ExpCountry) IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+
 AND lcase(Units.ExpUnit) = 'pc_ent'
 AND lcase(BrkDwns.ExpBrkDwn) = '10_c10_s951_xk'
 AND lcase(Variables.ExpVariable) = 'e_awseu'
