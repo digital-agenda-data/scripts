@@ -1,9 +1,7 @@
 select
 years.Year as year,
 
-case upper(Countries.ExpCountry)
-  when 'EU28' then 'EU'
-  else upper(Countries.ExpCountry) end as country,
+Countries.ExpCountry as country,
 
 'i_isk_ge_me' as variable,
 case lower(BrkDwns.ExpBrkDwn)
@@ -29,12 +27,14 @@ from DataWithAggregates
 
 where
 
-upper(Countries.ExpCountry) IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK')
+Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK')
 AND lower(Units.ExpUnit) IN ('mio_ind', 'pc_ind', 'pc_ind_iu3') 
 AND lower(Variables.ExpVariable) in ('i_isk_hi', 'i_isk_me') 
 AND lower(BrkDwns.ExpBrkDwn) in ('ind_total', 'hhi_q1', 'hhi_q2', 'hhi_q3', 'hhi_q4', 'y16_24', 'y25_54', 'y25_64', 'y55_74',
  'y16_24', 'y25_34', 'y35_44', 'y45_54', 'y55_64', 'y65_74', 'cb_eu_for', 'cb_ext_eu', 'cb_nat', 'cc_eu_for', 'cc_ext_eu',
  'cc_nat', 'ind_deg1', 'ind_deg2', 'ind_deg3', 'ind_deg_prural', 'ind_deg_purban', 'ind_deg_int', 'i0_2', 'i3_4', 'i5_6', 'i5_8', 'sal_self_fam', 'une', 'empl_une', 'stud', 'retir_other', 'f_y16_74', 'm_y16_74', 'rf_0', 'rf_ge1', 'rf_ge2')
+
+AND DataWithAggregates.Value is not null
 
 group by Years.Year, Countries.ExpCountry, BrkDwns.ExpBrkDwn, Units.ExpUnit
 
@@ -69,10 +69,15 @@ from DataWithAggregates
 where
 
 lower(Units.ExpUnit) IN ('mio_ind', 'pc_ind', 'pc_ind_iu3') AND
-upper(Countries.ExpCountry) = 'EU28' AND
-lower(Variables.ExpVariable) in ('i_isk_hi', 'i_isk_me') AND
-lower(BrkDwns.ExpBrkDwn) in ('ind_total', 'hhi_q1', 'hhi_q2', 'hhi_q3', 'hhi_q4', 'y16_24', 'y25_54', 'y25_64', 'y55_74',
+(
+  Countries.ExpCountry = 'EU28'
+  OR Countries.ExpCountry = 'EU27' AND Years.Year < '2007'
+)
+AND lower(Variables.ExpVariable) in ('i_isk_hi', 'i_isk_me')
+AND lower(BrkDwns.ExpBrkDwn) in ('ind_total', 'hhi_q1', 'hhi_q2', 'hhi_q3', 'hhi_q4', 'y16_24', 'y25_54', 'y25_64', 'y55_74',
  'y16_24', 'y25_34', 'y35_44', 'y45_54', 'y55_64', 'y65_74', 'cb_eu_for', 'cb_ext_eu', 'cb_nat', 'cc_eu_for', 'cc_ext_eu',
  'cc_nat', 'ind_deg1', 'ind_deg2', 'ind_deg3', 'ind_deg_prural', 'ind_deg_purban', 'ind_deg_int', 'i0_2', 'i3_4', 'i5_6', 'i5_8', 'sal_self_fam', 'une', 'empl_une', 'stud', 'retir_other', 'f_y16_74', 'm_y16_74', 'rf_0', 'rf_ge1', 'rf_ge2')
+
+AND DataWithAggregates.Value is not null
 
 group by Years.Year, Countries.ExpCountry, BrkDwns.ExpBrkDwn, Units.ExpUnit
