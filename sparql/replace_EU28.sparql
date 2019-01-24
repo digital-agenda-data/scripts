@@ -1,0 +1,30 @@
+sparql
+PREFIX dad-prop: <http://semantic.digital-agenda-data.eu/def/property/> 
+
+INSERT {
+GRAPH <http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators> {
+  ?obs dad-prop:ref-area <http://eurostat.linked-statistics.org/dic/geo#EU>
+}
+}
+WHERE { 
+  ?obs dad-prop:ref-area <http://eurostat.linked-statistics.org/dic/geo#EU28>
+}
+
+
+;
+
+sparql
+PREFIX dad-prop: <http://semantic.digital-agenda-data.eu/def/property/> 
+
+DELETE {
+  graph <http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators> {
+    ?obs dad-prop:ref-area <http://eurostat.linked-statistics.org/dic/geo#EU28>
+  }
+}
+where {
+  graph <http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators> {
+    ?obs ?p ?o
+    filter (?p = dad-prop:ref-area)
+    filter (?o = <http://eurostat.linked-statistics.org/dic/geo#EU28>)
+  }
+}
