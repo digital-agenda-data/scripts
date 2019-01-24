@@ -168,6 +168,6 @@ AND (
   )
   OR (
     lcase(Variables.ExpVariable) in ('e_ebuy')
-    AND (Countries.ExpCountry not in ('EU28') OR Years.Year < '2014')
+    AND (Countries.ExpCountry not in ('EU28') OR Years.Year = '2010')
   )
 )
