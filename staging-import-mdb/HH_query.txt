@@ -48,13 +48,12 @@ where
 
 AND lower(Units.ExpUnit) IN (
   'pc_ind_blt12',
-  'mio_hh',
   'mio_ind',
   'pc_hh',
   'pc_ind',
   'pc_ind_ilt12',
   'pc_ind_iu3',
-  'pc_igov12nrt'
+  'pc_ind_igov12nrt'
 ) AND
 
 (
