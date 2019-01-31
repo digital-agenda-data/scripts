@@ -6,7 +6,7 @@ case Countries.ExpCountry
   else Countries.ExpCountry end as country,
 
 'e_aws' as variable,
-'Rest_world' as brkdown,
+'rest_world' as brkdown,
 lcase(Units.ExpUnit) as unit,
 DataWithAggregates.Value as obsValue,
 coalesce(DataWithAggregates.Flags, '') as flag,
@@ -36,7 +36,7 @@ case Countries.ExpCountry
   else Countries.ExpCountry end as country,
 
 'e_aws' as variable,
-'Own_country' as brkdown,
+'own_country' as brkdown,
 lcase(Units.ExpUnit) as unit,
 DataWithAggregates.Value as obsValue,
 coalesce(DataWithAggregates.Flags, '') as flag,
@@ -66,7 +66,7 @@ case Countries.ExpCountry
   else Countries.ExpCountry end as country,
 
 'e_aws' as variable,
-'Other_EU_countries' as brkdown,
+'other_eu_countries' as brkdown,
 lcase(Units.ExpUnit) as unit,
 DataWithAggregates.Value as obsValue,
 coalesce(DataWithAggregates.Flags, '') as flag,
