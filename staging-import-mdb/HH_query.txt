@@ -122,7 +122,6 @@ AND lower(Units.ExpUnit) IN (
     'i_iump_mph',
     'i_iuph1',
     'i_iuph',
-    'i_igov12rt',
     'i_iugov12',
     'i_bfeu',
     'i_bgoodo',

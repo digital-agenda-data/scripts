@@ -12,12 +12,13 @@ http://semantic.digital-agenda-data.eu/codelist/indicator/i_blt12
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_bpgood
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_bserv
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_cc
+http://semantic.digital-agenda-data.eu/codelist/indicator/i_cisk_sfjob
+http://semantic.digital-agenda-data.eu/codelist/indicator/i_cisk_sfjobx
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_cook
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_cprg
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_cprg1
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_cweb
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_iday
-http://semantic.digital-agenda-data.eu/codelist/indicator/i_igov12rt
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_igov12rt
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_igovrt
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_ihif

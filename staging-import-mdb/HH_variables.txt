@@ -17,12 +17,13 @@ i_blt12
 i_bpgood
 i_bserv
 i_cc
+i_cisk_sfjob
+i_cisk_sfjobx
 i_cook
 i_cprg
 i_cprg1
 i_cweb
 i_iday
-i_igov12rt
 i_igov12rt
 i_igovrt
 i_ihif
