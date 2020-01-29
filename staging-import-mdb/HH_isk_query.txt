@@ -25,7 +25,7 @@ from DataWithAggregates
   join BrkDwns on DataWithAggregates.IdBrkDwn = BrkDwns.IdBrkDwn
   join Countries on DataWithAggregates.IdCountry = Countries.IdCountry
   join Units on DataWithAggregates.IdUnit = Units.IdUnit
-  left outer join Notes on DataWithAggregates.IdNote = Notes.IdNote
+  left outer join Notes on (DataWithAggregates.IdNote = Notes.IdNote and DataWithAggregates.IdYear = Notes.IdYear)
 
 where
 
@@ -69,7 +69,7 @@ from DataWithAggregates
   join BrkDwns on DataWithAggregates.IdBrkDwn = BrkDwns.IdBrkDwn
   join Countries on DataWithAggregates.IdCountry = Countries.IdCountry
   join Units on DataWithAggregates.IdUnit = Units.IdUnit
-  left outer join Notes on DataWithAggregates.IdNote = Notes.IdNote
+  left outer join Notes on (DataWithAggregates.IdNote = Notes.IdNote and DataWithAggregates.IdYear = Notes.IdYear)
 
 where
 
