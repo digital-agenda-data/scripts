@@ -23,10 +23,13 @@ delete {
 
 sparql
 delete {
-  GRAPH <http://digital-agenda-data.eu/data/home/melis/registrations> {
-<http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/population/total/habitants/LU/2014>
+  GRAPH <http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators> {
+<http://semantic.digital-agenda-data.eu/data/digital-agenda-scoreboard-key-indicators/i_cisk_sfjobx/sal_self_fam/pc_ind/SE/2011>
 <http://purl.org/linked-data/sdmx/2009/measure#obsValue>
-"549680"^^xsd:double
+"0.079353"^^xsd:double
   }
 }
 
+
+
+###

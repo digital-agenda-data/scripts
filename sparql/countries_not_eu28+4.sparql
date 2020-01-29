@@ -1,0 +1,46 @@
+PREFIX qb: <http://purl.org/linked-data/cube#> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX dad-prop: <http://semantic.digital-agenda-data.eu/def/property/> 
+
+
+select ?area group_concat(distinct(?ind), ", ") as ?indicators where { 
+?obs a qb:Observation; qb:dataSet <http://semantic.digital-agenda-data.eu/dataset/digital-agenda-scoreboard-key-indicators>;
+dad-prop:ref-area ?area;
+dad-prop:indicator [skos:notation ?ind].
+
+filter (
+  ?area not in (
+		<http://eurostat.linked-statistics.org/dic/geo#AT>, 
+		<http://eurostat.linked-statistics.org/dic/geo#BE>, 
+		<http://eurostat.linked-statistics.org/dic/geo#BG>, 
+		<http://eurostat.linked-statistics.org/dic/geo#CY>, 
+		<http://eurostat.linked-statistics.org/dic/geo#CZ>, 
+		<http://eurostat.linked-statistics.org/dic/geo#DE>, 
+		<http://eurostat.linked-statistics.org/dic/geo#DK>, 
+		<http://eurostat.linked-statistics.org/dic/geo#EE>, 
+		<http://eurostat.linked-statistics.org/dic/geo#EL>, 
+		<http://eurostat.linked-statistics.org/dic/geo#ES>, 
+		<http://eurostat.linked-statistics.org/dic/geo#EU>, 
+		<http://eurostat.linked-statistics.org/dic/geo#FI>, 
+		<http://eurostat.linked-statistics.org/dic/geo#FR>, 
+		<http://eurostat.linked-statistics.org/dic/geo#HR>, 
+		<http://eurostat.linked-statistics.org/dic/geo#HU>, 
+		<http://eurostat.linked-statistics.org/dic/geo#IE>, 
+		<http://eurostat.linked-statistics.org/dic/geo#IS>, 
+		<http://eurostat.linked-statistics.org/dic/geo#IT>, 
+		<http://eurostat.linked-statistics.org/dic/geo#LI>, 
+		<http://eurostat.linked-statistics.org/dic/geo#LT>,
+		<http://eurostat.linked-statistics.org/dic/geo#LU>, 
+		<http://eurostat.linked-statistics.org/dic/geo#LV>, 
+		<http://eurostat.linked-statistics.org/dic/geo#MT>, 
+		<http://eurostat.linked-statistics.org/dic/geo#NL>, 
+		<http://eurostat.linked-statistics.org/dic/geo#NO>, 
+		<http://eurostat.linked-statistics.org/dic/geo#PL>, 
+		<http://eurostat.linked-statistics.org/dic/geo#PT>, 
+		<http://eurostat.linked-statistics.org/dic/geo#RO>, 
+		<http://eurostat.linked-statistics.org/dic/geo#SE>, 
+		<http://eurostat.linked-statistics.org/dic/geo#SI>,
+		<http://eurostat.linked-statistics.org/dic/geo#SK>, 
+		<http://eurostat.linked-statistics.org/dic/geo#UK>
+  )
+)
+}
+group by ?area

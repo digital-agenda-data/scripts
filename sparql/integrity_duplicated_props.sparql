@@ -2,7 +2,7 @@ PREFIX qb: <http://purl.org/linked-data/cube#>
 PREFIX sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#>
 PREFIX dad-prop: <http://semantic.digital-agenda-data.eu/def/property/>
 
-SELECT * where {
+SELECT ?observation ?value1 datatype(?value1) ?value2 datatype(?value2) where {
 ?observation
     a qb:Observation ; 
     ?p ?value1;
