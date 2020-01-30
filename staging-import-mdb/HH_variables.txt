@@ -17,8 +17,6 @@ i_blt12
 i_bpgood
 i_bserv
 i_cc
-i_cisk_sfjob
-i_cisk_sfjobx
 i_cook
 i_cprg
 i_cprg1
@@ -67,6 +65,18 @@ i_skedu
 
 SPECIAL VARIABLES
 =================
+Digital Skills indicators:
+	i_dsk_ab
+	i_dsk_bab
+	i_dsk_l
+	i_dsk_x
+	i_dsk_c_ab
+	i_dsk_i_ab
+	i_dsk_ps_ab
+	i_dsk_s_ab
+
+i_dsk_i_bab, i_dsk_c_bab, i_dsk_ps_bab, i_dsk_s_bab: derived with a different query
+
 i_isk_hi, i_isk_me: only collected until 2013 and imported with a different query
 
 

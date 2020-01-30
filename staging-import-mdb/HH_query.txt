@@ -147,7 +147,6 @@ AND lower(Units.ExpUnit) IN (
     'y25_54',
     'y25_64',
     'y55_74',
-    'y16_24',
     'y25_34',
     'y35_44',
     'y45_54',
@@ -179,17 +178,5 @@ AND lower(Units.ExpUnit) IN (
     'rf_0',
     'rf_ge1',
     'rf_ge2'
-  )
-
-  OR
-
-  lower(Variables.ExpVariable) IN (
-    'i_cisk_sfjob',
-    'i_cisk_sfjobx'
-  ) AND 
-  lower(BrkDwns.ExpBrkDwn) in (
-    'sal_self_fam',
-    'une',
-    'empl_une'
   )
 )
