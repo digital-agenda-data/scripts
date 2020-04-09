@@ -1,0 +1,182 @@
+{
+  "annotations": {
+    "filters": [
+      {
+        "name": "indicator"
+      },
+      {
+        "name": "breakdown"
+      },
+      {
+        "name": "unit-measure"
+      }
+    ]
+  },
+  "axis-horizontal-rotated": false,
+  "axis-horizontal-title": "none",
+  "axis-vertical-title": "short",
+  "category_facet": "time-period",
+  "chart_type": "lines",
+  "facets": [
+    {
+      "constraints": {},
+      "default_value": "egovernment",
+      "dimension": "indicator-group",
+      "include_wildcard": true,
+      "label": "Indicator group",
+      "name": "indicator-group",
+      "sortBy": "order_in_codelist",
+      "sortOrder": "asc",
+      "type": "hidden_select"
+    },
+    {
+      "constraints": {
+        "indicator-group": "indicator-group"
+      },
+      "default_value": "#random",
+      "dimension": "indicator",
+      "label": "Indicator",
+      "name": "indicator",
+      "sortBy": "order_in_codelist",
+      "sortOrder": "asc",
+      "type": "select"
+    },
+    {
+      "constraints": {
+        "indicator": "indicator",
+        "indicator-group": "indicator-group"
+      },
+      "default_value": "e_gov_events",
+      "ignore_values": ["total"],
+      "dimension": "breakdown-group",
+      "label": "Breakdown group",
+      "name": "breakdown-group",
+      "sortBy": "order_in_codelist",
+      "sortOrder": "asc",
+      "type": "hidden_select"
+    },
+    {
+      "constraints": {
+        "breakdown-group": "breakdown-group",
+        "indicator": "indicator",
+        "indicator-group": "indicator-group"
+      },
+      "default_value": "egov_score",
+      "dimension": "unit-measure",
+      "label": "Unit of measure",
+      "name": "unit-measure",
+      "type": "hidden_select"
+    },
+    {
+      "constraints": {
+        "breakdown-group": "breakdown-group",
+        "indicator": "indicator",
+        "indicator-group": "indicator-group",
+        "unit-measure": "unit-measure"
+      },
+      "dimension": "breakdown",
+      "label": "Breakdown",
+      "name": "breakdown",
+      "sortBy": "order_in_codelist",
+      "sortOrder": "asc",
+      "type": "all-values"
+    },
+    {
+      "constraints": {
+        "breakdown-group": "breakdown-group",
+        "indicator": "indicator",
+        "indicator-group": "indicator-group",
+        "unit-measure": "unit-measure"
+      },
+      "default_value": "EU",
+      "dimension": "ref-area",
+      "ignore_values": [],
+      "label": "Country",
+      "name": "ref-area",
+      "sortBy": "label",
+      "sortOrder": "asc",
+      "position": "upper-right",
+      "type": "select"
+    },
+    {
+      "constraints": {
+        "breakdown-group": "breakdown-group",
+        "indicator": "indicator",
+        "indicator-group": "indicator-group",
+        "ref-area": "ref-area",
+        "unit-measure": "unit-measure"
+      },
+      "dimension": "time-period",
+      "label": "Time period",
+      "name": "time-period",
+      "type": "all-values"
+    },
+    {
+      "dimension": "value",
+      "name": "value",
+      "type": "all-values"
+    }
+  ],
+  "height": 450,
+  "labels": {
+    "breakdown-group": {
+      "facet": "breakdown-group"
+    },
+    "indicator": {
+      "facet": "indicator"
+    },
+    "ref-area": {
+      "facet": "ref-area"
+    },
+    "unit-measure": {
+      "facet": "unit-measure"
+    }
+  },
+  "multiple_series": "breakdown",
+  "series-ending-label": "none",
+  "series-legend-label": "long",
+  "series-point-label": "none",
+  "sort": {
+    "by": "category",
+    "each_series": true,
+    "order": 1
+  },
+  "titles": {
+    "subtitle": [
+      {
+        "facet_name": "ref-area",
+        "format": "label",
+        "prefix": null,
+        "suffix": null
+      }
+    ],
+    "title": [
+      {
+        "facet_name": "indicator",
+        "format": "label",
+        "prefix": null,
+        "suffix": null
+      },
+      {
+        "facet_name": "breakdown-group",
+        "format": "label",
+        "prefix": ", by ",
+        "suffix": null
+      }
+    ],
+    "xAxisTitle": [],
+    "yAxisTitle": [
+      {
+        "facet_name": "unit-measure",
+        "format": "short_label",
+        "prefix": null,
+        "suffix": null
+      }
+    ]
+  },
+  "tooltips": {
+    "flag": true,
+    "note": true,
+    "unit-measure": true
+  }
+}
