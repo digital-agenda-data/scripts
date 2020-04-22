@@ -62,7 +62,23 @@ AND lower(BrkDwns.ExpBrkDwn) in (
 
     'rf_0',
     'rf_ge1',
-    'rf_ge2'
+    'rf_ge2',
+
+    'ind_deg1',
+    'ind_deg2',
+    'ind_deg3',
+
+    'ind_dch',
+    'ind_no_dch',
+
+    'emp_wkt_ft',
+    'emp_wkt_pt',
+
+    'isco_ict',
+    'isco_ictx',
+
+    'emp_con_prm',
+    'emp_con_tmp'
 )
 
 AND DataWithAggregates.Value is not null
@@ -135,7 +151,23 @@ AND lower(BrkDwns.ExpBrkDwn) in (
 
     'rf_0',
     'rf_ge1',
-    'rf_ge2'
+    'rf_ge2',
+
+    'ind_deg1',
+    'ind_deg2',
+    'ind_deg3',
+
+    'ind_dch',
+    'ind_no_dch',
+
+    'emp_wkt_ft',
+    'emp_wkt_pt',
+
+    'isco_ict',
+    'isco_ictx',
+
+    'emp_con_prm',
+    'emp_con_tmp'
 )
 
 AND DataWithAggregates.Value is not null
@@ -207,7 +239,23 @@ AND lower(BrkDwns.ExpBrkDwn) in (
 
     'rf_0',
     'rf_ge1',
-    'rf_ge2'
+    'rf_ge2',
+
+    'ind_deg1',
+    'ind_deg2',
+    'ind_deg3',
+
+    'ind_dch',
+    'ind_no_dch',
+
+    'emp_wkt_ft',
+    'emp_wkt_pt',
+
+    'isco_ict',
+    'isco_ictx',
+
+    'emp_con_prm',
+    'emp_con_tmp'
 )
 
 AND DataWithAggregates.Value is not null
@@ -279,7 +327,23 @@ AND lower(BrkDwns.ExpBrkDwn) in (
 
     'rf_0',
     'rf_ge1',
-    'rf_ge2'
+    'rf_ge2',
+
+    'ind_deg1',
+    'ind_deg2',
+    'ind_deg3',
+
+    'ind_dch',
+    'ind_no_dch',
+
+    'emp_wkt_ft',
+    'emp_wkt_pt',
+
+    'isco_ict',
+    'isco_ictx',
+
+    'emp_con_prm',
+    'emp_con_tmp'
 )
 
 AND DataWithAggregates.Value is not null
