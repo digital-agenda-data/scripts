@@ -41,7 +41,6 @@ AND lower(Variables.ExpVariable) IN (
     'i_dsk_ab',
     'i_dsk_bab',
     'i_dsk_l',
-    'i_dsk_x',
     'i_dsk_c_ab',
     'i_dsk_i_ab',
     'i_dsk_ps_ab',

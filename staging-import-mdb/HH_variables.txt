@@ -69,7 +69,6 @@ Digital Skills indicators:
 	i_dsk_ab
 	i_dsk_bab
 	i_dsk_l
-	i_dsk_x
 	i_dsk_c_ab
 	i_dsk_i_ab
 	i_dsk_ps_ab
@@ -91,3 +90,8 @@ i_cprg1 : i_cprg
 
 
 i_isk_hi, i_isk_me: i_isk_ge_me
+
+
+NOTES
+======
+i_dsk_x removed as of 20/07/2020

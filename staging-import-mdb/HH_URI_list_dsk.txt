@@ -3,7 +3,6 @@ DSK INDICATORS FROM EUROSTAT AND DERIVED:
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_dsk_ab
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_dsk_bab
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_dsk_l
-http://semantic.digital-agenda-data.eu/codelist/indicator/i_dsk_x
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_dsk_c_ab
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_dsk_i_ab
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_dsk_ps_ab
