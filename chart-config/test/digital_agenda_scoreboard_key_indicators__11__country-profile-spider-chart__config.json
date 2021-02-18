@@ -1,0 +1,111 @@
+{
+    "category_facet": "indicator",
+    "chart_subtype": "polar",
+    "chart_type": "country_profile_polar",
+    "facets": [
+        {
+            "constraints": {},
+            "default_value": "#random",
+            "dimension": "indicator-group",
+            "label": "Indicator group",
+            "name": "indicator-group",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "indicator-group": "indicator-group"
+            },
+            "dimension": "time-period",
+            "label": "Period",
+            "name": "time-period",
+            "sortBy": "label",
+            "sortOrder": "reverse",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "indicator-group": "indicator-group",
+                "time-period": "time-period"
+            },
+            "default_value": [
+                "#random",
+                "EU27"
+            ],
+            "dimension": "ref-area",
+            "label": "Countries",
+            "name": "ref-area",
+            "sortBy": "label",
+            "sortOrder": "asc",
+            "type": "multiple_select"
+        },
+        {
+            "constraints": {
+                "indicator-group": "indicator-group",
+                "time-period": "time-period"
+            },
+            "dimension": "indicator",
+            "label": "Indicator",
+            "name": "indicator",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "all-values"
+        },
+        {
+            "dimension": "value",
+            "type": "all-values"
+        }
+    ],
+    "labels": {
+        "indicator-group": {
+            "facet": "indicator-group"
+        },
+        "ref-area": {
+            "facet": "ref-area"
+        },
+        "time-period": {
+            "facet": "time-period"
+        }
+    },
+    "multiple_series": "ref-area",
+    "series-legend-label": "long",
+    "series-point-label": "long",
+    "sort": {
+        "by": "order",
+        "each_series": false,
+        "order": 1
+    },
+    "text": [
+        {
+            "position": "lower-right",
+            "value": "The bars present the relative position of a country on all the key indicators of a thematic group, compared on a common scale with the lowest, average and highest European countries values."
+        }
+    ],
+    "titles": {
+        "subtitle": [
+            {
+                "facet_name": "time-period",
+                "format": "short_label",
+                "prefix": null,
+                "suffix": null
+            }
+        ],
+        "title": [
+            {
+                "facet_name": "ref-area",
+                "format": "label",
+                "prefix": "Country profile for ",
+                "suffix": null
+            },
+            {
+                "facet_name": "indicator-group",
+                "format": "label",
+                "prefix": ", ",
+                "suffix": " indicators"
+            }
+        ],
+        "xAxisTitle": [],
+        "yAxisTitle": []
+    }
+}

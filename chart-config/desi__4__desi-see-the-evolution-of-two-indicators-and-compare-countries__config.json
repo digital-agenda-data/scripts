@@ -1,0 +1,189 @@
+{
+    "animation": false,
+    "annotations": {
+        "filters": [
+            {
+                "name": "indicator"
+            },
+            {
+                "name": "breakdown"
+            },
+            {
+                "name": "unit-measure"
+            }
+        ],
+        "title": "Definitions and scopes"
+    },
+    "category_facet": "time-period",
+    "chart_type": "lines",
+    "facets": [
+        {
+            "constraints": {},
+            "default_value": "#random",
+            "dimension": "indicator",
+            "ignore_values": [
+                "desi_sliders"
+            ],
+            "label": "Indicator",
+            "name": "indicator",
+            "position": "upper-left",
+            "sortBy": "inner_order",
+            "sortOrder": "asc",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "indicator": "indicator"
+            },
+            "default_value": [
+                "1m_websites",
+                "hh_total",
+                "ind_total",
+                "rural_pop",
+                "total",
+                "total_fbb",
+                "total_mbb",
+                "total_mob",
+                "total_pop",
+                "total_pophh",
+                "total_tel",
+                "ent_all_xfin",
+                "orgclass_total",
+                "tot_ict_products",
+                "total_offers8plus"
+            ],
+            "dimension": "breakdown",
+            "label": "Breakdown",
+            "name": "breakdown",
+            "position": "upper-left",
+            "sortBy": "inner_order",
+            "sortOrder": "asc",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "breakdown": "breakdown",
+                "indicator": "indicator"
+            },
+            "default_value": "#random",
+            "dimension": "unit-measure",
+            "label": "Unit of measure",
+            "name": "unit-measure",
+            "position": "upper-right",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "breakdown": "breakdown",
+                "indicator": "indicator",
+                "unit-measure": "unit-measure"
+            },
+            "default_value": [
+                "EU",
+                "#random"
+            ],
+            "dimension": "ref-area",
+            "label": "Select the countries",
+            "name": "ref-area",
+            "position": "upper-right",
+            "sortBy": "label",
+            "sortOrder": "asc",
+            "type": "multiple_select"
+        },
+        {
+            "constraints": {},
+            "default_value": "#random",
+            "dimension": "indicator-group",
+            "include_wildcard": true,
+            "label": "Indicator group",
+            "name": "indicator-group",
+            "position": "upper-left",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "all-values"
+        },
+        {
+            "constraints": {},
+            "default_value": "#random",
+            "dimension": "breakdown-group",
+            "include_wildcard": true,
+            "label": "Breakdown group",
+            "name": "breakdown-group",
+            "position": "upper-left",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "all-values"
+        },
+        {
+            "constraints": {
+                "breakdown": "breakdown",
+                "indicator": "indicator",
+                "unit-measure": "unit-measure"
+            },
+            "dimension": "time-period",
+            "label": "Time period",
+            "name": "time-period",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "all-values"
+        },
+        {
+            "dimension": "value",
+            "name": "value",
+            "type": "all-values"
+        }
+    ],
+    "labels": {
+        "breakdown": {
+            "facet": "breakdown"
+        },
+        "indicator": {
+            "facet": "indicator"
+        },
+        "unit-measure": {
+            "facet": "unit-measure"
+        }
+    },
+    "multiple_series": "ref-area",
+    "plotlines": {},
+    "series-ending-label": "long",
+    "series-legend-label": "none",
+    "series-point-label": "none",
+    "sort": {
+        "by": "category",
+        "each_series": true,
+        "order": -1
+    },
+    "titles": {
+        "subtitle": [],
+        "title": [
+            {
+                "facet_name": "indicator",
+                "format": "label",
+                "prefix": null,
+                "suffix": null
+            },
+            {
+                "facet_name": "breakdown",
+                "format": "label",
+                "prefix": ", by ",
+                "suffix": null
+            }
+        ],
+        "yAxisTitle": [
+            {
+                "facet_name": "unit-measure",
+                "format": "short_label",
+                "prefix": null,
+                "suffix": null
+            }
+        ]
+    },
+    "tooltips": {
+        "flag": true,
+        "note": true,
+        "unit-measure": true
+    }
+}

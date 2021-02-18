@@ -1,0 +1,340 @@
+{
+    "annotations": {
+        "filters": [
+            {
+                "name": "x-indicator"
+            },
+            {
+                "name": "x-breakdown"
+            },
+            {
+                "name": "x-unit-measure"
+            },
+            {
+                "name": "y-indicator"
+            },
+            {
+                "name": "y-breakdown"
+            },
+            {
+                "name": "y-unit-measure"
+            }
+        ]
+    },
+    "axis-horizontal-rotated": false,
+    "axis-horizontal-title": "none",
+    "axis-vertical-title": "short",
+    "category_facet": "time-period",
+    "chart_type": "lines",
+    "credits": {
+        "link": "http://ec.europa.eu/digital-agenda/en/graphs/",
+        "text": "European Commission, Digital Agenda Scoreboard"
+    },
+    "facets": [
+        {
+            "constraints": {},
+            "dimension": "__dataset",
+            "label": "Dataset",
+            "name": "x-__dataset",
+            "position": "upper-left",
+            "sortBy": "inner_order",
+            "sortOrder": "asc",
+            "type": "dataset_select"
+        },
+        {
+            "constraints": {},
+            "dimension": "__dataset",
+            "label": "Dataset",
+            "name": "y-__dataset",
+            "position": "upper-right",
+            "sortBy": "inner_order",
+            "sortOrder": "asc",
+            "type": "dataset_select"
+        },
+        {
+            "constraints": {
+                "__dataset": "x-__dataset"
+            },
+            "default_value": "#random",
+            "dimension": "indicator-group",
+            "include_wildcard": true,
+            "label": "Indicator group",
+            "name": "x-indicator-group",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "all-values"
+        },
+        {
+            "constraints": {},
+            "default_value": "#random",
+            "dimension": "indicator",
+            "label": "Indicator",
+            "name": "x-indicator",
+            "sortBy": "inner_order",
+            "sortOrder": "asc",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "indicator": "x-indicator"
+            },
+            "dimension": "breakdown-group",
+            "label": "(X) breakdown group",
+            "name": "x-breakdown-group",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "all-values"
+        },
+        {
+            "constraints": {
+                "indicator": "x-indicator"
+            },
+            "default_value": [
+                "1M_websites",
+                "HH_total",
+                "IND_TOTAL",
+                "RURAL_POP",
+                "TOTAL",
+                "TOTAL_FBB",
+                "TOTAL_MBB",
+                "TOTAL_MOB",
+                "TOTAL_POP",
+                "TOTAL_POPHH",
+                "TOTAL_TEL",
+                "ent_all_xfin",
+                "orgclass_total",
+                "tot_ict_products",
+                "total_offers8plus"
+            ],
+            "dimension": "breakdown",
+            "label": "Breakdown",
+            "name": "x-breakdown",
+            "sortBy": "inner_order",
+            "sortOrder": "asc",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "breakdown": "x-breakdown",
+                "indicator": "x-indicator"
+            },
+            "default_value": "#random",
+            "dimension": "unit-measure",
+            "label": "Unit of measure",
+            "name": "x-unit-measure",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "__dataset": "y-__dataset"
+            },
+            "default_value": "#random",
+            "dimension": "indicator-group",
+            "include_wildcard": true,
+            "label": "Indicator group",
+            "name": "y-indicator-group",
+            "position": "upper-right",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "all-values"
+        },
+        {
+            "constraints": {},
+            "default_value": "#random",
+            "dimension": "indicator",
+            "label": "Indicator",
+            "name": "y-indicator",
+            "position": "upper-right",
+            "sortBy": "inner_order",
+            "sortOrder": "asc",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "indicator": "y-indicator"
+            },
+            "dimension": "breakdown-group",
+            "label": "(Y) breakdown group",
+            "name": "y-breakdown-group",
+            "position": "upper-right",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "all-values"
+        },
+        {
+            "constraints": {
+                "indicator": "y-indicator"
+            },
+            "default_value": [
+                "1M_websites",
+                "HH_total",
+                "IND_TOTAL",
+                "RURAL_POP",
+                "TOTAL",
+                "TOTAL_FBB",
+                "TOTAL_MBB",
+                "TOTAL_MOB",
+                "TOTAL_POP",
+                "TOTAL_POPHH",
+                "TOTAL_TEL",
+                "ent_all_xfin",
+                "orgclass_total",
+                "tot_ict_products",
+                "total_offers8plus"
+            ],
+            "dimension": "breakdown",
+            "label": "Breakdown",
+            "name": "y-breakdown",
+            "position": "upper-right",
+            "sortBy": "inner_order",
+            "sortOrder": "asc",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "breakdown": "y-breakdown",
+                "indicator": "y-indicator"
+            },
+            "default_value": "#random",
+            "dimension": "unit-measure",
+            "label": "Unit of measure",
+            "name": "y-unit-measure",
+            "position": "upper-right",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "x-__dataset": "x-__dataset",
+                "x-breakdown": "x-breakdown",
+                "x-indicator": "x-indicator",
+                "x-unit-measure": "x-unit-measure",
+                "y-__dataset": "y-__dataset",
+                "y-breakdown": "y-breakdown",
+                "y-indicator": "y-indicator",
+                "y-unit-measure": "y-unit-measure"
+            },
+            "default_value": "EU27",
+            "dimension": "ref-area",
+            "label": "Country",
+            "multidim_common": true,
+            "name": "ref-area",
+            "sortBy": "label",
+            "sortOrder": "asc",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "ref-area": "ref-area",
+                "x-__dataset": "x-__dataset",
+                "x-breakdown": "x-breakdown",
+                "x-indicator": "x-indicator",
+                "x-unit-measure": "x-unit-measure",
+                "y-__dataset": "y-__dataset",
+                "y-breakdown": "y-breakdown",
+                "y-indicator": "y-indicator",
+                "y-unit-measure": "y-unit-measure"
+            },
+            "dimension": "time-period",
+            "label": "Time period",
+            "multidim_common": true,
+            "name": "time-period",
+            "type": "all-values"
+        },
+        {
+            "dimension": "value",
+            "name": "value",
+            "type": "all-values"
+        }
+    ],
+    "height": 450,
+    "labels": {
+        "ref-area": {
+            "facet": "ref-area"
+        },
+        "x-breakdown": {
+            "facet": "x-breakdown"
+        },
+        "x-indicator": {
+            "facet": "x-indicator"
+        },
+        "x-unit-measure": {
+            "facet": "x-unit-measure"
+        },
+        "y-breakdown": {
+            "facet": "y-breakdown"
+        },
+        "y-indicator": {
+            "facet": "y-indicator"
+        },
+        "y-unit-measure": {
+            "facet": "y-unit-measure"
+        }
+    },
+    "multiple_series": 2,
+    "series-ending-label": "none",
+    "series-legend-label": "long",
+    "series-point-label": "none",
+    "sort": {
+        "by": "category",
+        "each_series": true,
+        "order": 1
+    },
+    "titles": {
+        "subtitle": [
+            {
+                "facet_name": "ref-area",
+                "format": "label",
+                "prefix": null,
+                "suffix": null
+            }
+        ],
+        "title": [
+            {
+                "facet_name": "x-indicator",
+                "format": "label",
+                "prefix": null,
+                "suffix": null
+            },
+            {
+                "facet_name": "x-breakdown",
+                "format": "label",
+                "prefix": ", by ",
+                "suffix": null
+            },
+            {
+                "facet_name": "y-indicator",
+                "format": "label",
+                "prefix": " and ",
+                "suffix": null
+            },
+            {
+                "facet_name": "y-breakdown",
+                "format": "label",
+                "prefix": ", by ",
+                "suffix": null
+            }
+        ],
+        "xAxisTitle": [],
+        "yAxisTitle": [
+            {
+                "asArray": true,
+                "facet_name": "x-unit-measure",
+                "format": "short_label",
+                "prefix": null,
+                "suffix": null
+            },
+            {
+                "asArray": true,
+                "facet_name": "y-unit-measure",
+                "format": "short_label",
+                "prefix": null,
+                "suffix": null
+            }
+        ]
+    },
+    "tooltips": {
+        "flag": true,
+        "note": true,
+        "unit-measure": true
+    }
+}

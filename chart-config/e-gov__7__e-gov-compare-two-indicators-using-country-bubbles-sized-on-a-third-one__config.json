@@ -1,0 +1,413 @@
+{
+    "annotations": {
+        "filters": [
+            {
+                "name": "x-indicator"
+            },
+            {
+                "name": "x-breakdown"
+            },
+            {
+                "name": "x-unit-measure"
+            },
+            {
+                "name": "y-indicator"
+            },
+            {
+                "name": "y-breakdown"
+            },
+            {
+                "name": "y-unit-measure"
+            },
+            {
+                "name": "z-indicator"
+            },
+            {
+                "name": "z-breakdown"
+            },
+            {
+                "name": "z-unit-measure"
+            }
+        ]
+    },
+    "category_facet": "ref-area",
+    "chart_type": "bubbles",
+    "facets": [
+        {
+            "constraints": {},
+            "default_value": "egovernment",
+            "dimension": "indicator-group",
+            "include_wildcard": true,
+            "label": "(X) indicator group",
+            "name": "x-indicator-group",
+            "position": "upper-left",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "hidden_select"
+        },
+        {
+            "constraints": {
+                "indicator-group": "x-indicator-group"
+            },
+            "default_value": "#random",
+            "dimension": "indicator",
+            "label": "(X) Indicator",
+            "name": "x-indicator",
+            "position": "upper-left",
+            "sortBy": "inner_order",
+            "sortOrder": "asc",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "indicator": "x-indicator"
+            },
+            "dimension": "breakdown-group",
+            "label": "(X) breakdown group",
+            "name": "x-breakdown-group",
+            "position": "upper-left",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "all-values"
+        },
+        {
+            "constraints": {
+                "indicator": "x-indicator"
+            },
+            "default_value": [
+                "egov_life_events"
+            ],
+            "dimension": "breakdown",
+            "label": "(X) Life event",
+            "name": "x-breakdown",
+            "position": "upper-right",
+            "sortBy": "inner_order",
+            "sortOrder": "asc",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "breakdown": "x-breakdown",
+                "indicator": "x-indicator"
+            },
+            "default_value": "egov_score",
+            "dimension": "unit-measure",
+            "label": "(X) unit of measure",
+            "name": "x-unit-measure",
+            "position": "upper-left",
+            "type": "hidden_select"
+        },
+        {
+            "constraints": {},
+            "default_value": "egovernment",
+            "dimension": "indicator-group",
+            "include_wildcard": true,
+            "label": "(Y) indicator group",
+            "name": "y-indicator-group",
+            "position": "upper-right",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "hidden_select"
+        },
+        {
+            "constraints": {
+                "indicator-group": "y-indicator-group"
+            },
+            "default_value": "#random",
+            "dimension": "indicator",
+            "label": "(Y) Indicator",
+            "name": "y-indicator",
+            "position": "upper-left",
+            "sortBy": "inner_order",
+            "sortOrder": "asc",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "indicator": "y-indicator"
+            },
+            "dimension": "breakdown-group",
+            "label": "(Y) breakdown group",
+            "name": "y-breakdown-group",
+            "position": "upper-right",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "all-values"
+        },
+        {
+            "constraints": {
+                "indicator": "y-indicator"
+            },
+            "default_value": [
+                "egov_life_events"
+            ],
+            "dimension": "breakdown",
+            "label": "(Y) Life event",
+            "name": "y-breakdown",
+            "position": "upper-right",
+            "sortBy": "inner_order",
+            "sortOrder": "asc",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "breakdown": "y-breakdown",
+                "indicator": "y-indicator"
+            },
+            "default_value": "egov_score",
+            "dimension": "unit-measure",
+            "label": "(Y) unit of measure",
+            "name": "y-unit-measure",
+            "position": "upper-right",
+            "type": "hidden_select"
+        },
+        {
+            "constraints": {},
+            "default_value": "egovernment",
+            "dimension": "indicator-group",
+            "include_wildcard": true,
+            "label": "(Z) indicator group",
+            "name": "z-indicator-group",
+            "position": "bottom-right",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "hidden_select"
+        },
+        {
+            "constraints": {
+                "indicator-group": "z-indicator-group"
+            },
+            "default_value": "#random",
+            "dimension": "indicator",
+            "label": "(Z) Indicator",
+            "name": "z-indicator",
+            "position": "upper-left",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "indicator": "x-indicator"
+            },
+            "dimension": "breakdown-group",
+            "label": "(Z) breakdown group",
+            "name": "z-breakdown-group",
+            "position": "bottom-right",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "all-values"
+        },
+        {
+            "constraints": {
+                "indicator": "z-indicator"
+            },
+            "default_value": [
+                "egov_life_events"
+            ],
+            "dimension": "breakdown",
+            "label": "(Z) Life event",
+            "name": "z-breakdown",
+            "position": "upper-right",
+            "sortBy": "order_in_codelist",
+            "sortOrder": "asc",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "breakdown": "z-breakdown",
+                "indicator": "z-indicator"
+            },
+            "default_value": "egov_score",
+            "dimension": "unit-measure",
+            "label": "(Z) unit of measure",
+            "name": "z-unit-measure",
+            "position": "bottom-right",
+            "type": "hidden_select"
+        },
+        {
+            "constraints": {
+                "x-breakdown": "x-breakdown",
+                "x-indicator": "x-indicator",
+                "x-unit-measure": "x-unit-measure",
+                "y-breakdown": "y-breakdown",
+                "y-indicator": "y-indicator",
+                "y-unit-measure": "y-unit-measure",
+                "z-breakdown": "z-breakdown",
+                "z-indicator": "z-indicator",
+                "z-unit-measure": "z-unit-measure"
+            },
+            "dimension": "time-period",
+            "label": "Period",
+            "multidim_common": true,
+            "name": "time-period",
+            "position": "bottom-right",
+            "sortBy": "notation",
+            "sortOrder": "reverse",
+            "type": "select"
+        },
+        {
+            "constraints": {
+                "time-period": "time-period",
+                "x-breakdown": "x-breakdown",
+                "x-indicator": "x-indicator",
+                "x-unit-measure": "x-unit-measure",
+                "y-breakdown": "y-breakdown",
+                "y-indicator": "y-indicator",
+                "y-unit-measure": "y-unit-measure",
+                "z-breakdown": "z-breakdown",
+                "z-indicator": "z-indicator",
+                "z-unit-measure": "z-unit-measure"
+            },
+            "default_value": [
+                "AL",
+                "AT",
+                "BE",
+                "BG",
+                "CH",
+                "CY",
+                "CZ",
+                "DE",
+                "DK",
+                "EE",
+                "EL",
+                "ES",
+                "EU",
+                "FI",
+                "FR",
+                "HR",
+                "HU",
+                "IE",
+                "IS",
+                "IT",
+                "LT",
+                "LU",
+                "LV",
+                "ME",
+                "MK",
+                "MT",
+                "NL",
+                "NO",
+                "PL",
+                "PT",
+                "RO",
+                "RS",
+                "SE",
+                "SI",
+                "SK",
+                "TR",
+                "UK"
+            ],
+            "dimension": "ref-area",
+            "ignore_values": [],
+            "label": "Country / Countries",
+            "multidim_common": true,
+            "name": "ref-area",
+            "on_client": true,
+            "position": ".right_column",
+            "type": "all-values"
+        },
+        {
+            "dimension": "value",
+            "multidim_value": true,
+            "type": "all-values"
+        }
+    ],
+    "labels": {
+        "time-period": {
+            "facet": "time-period"
+        },
+        "x-breakdown": {
+            "facet": "x-breakdown"
+        },
+        "x-indicator": {
+            "facet": "x-indicator"
+        },
+        "x-unit-measure": {
+            "facet": "x-unit-measure"
+        },
+        "y-breakdown": {
+            "facet": "y-breakdown"
+        },
+        "y-indicator": {
+            "facet": "y-indicator"
+        },
+        "y-unit-measure": {
+            "facet": "y-unit-measure"
+        },
+        "z-breakdown": {
+            "facet": "z-breakdown"
+        },
+        "z-indicator": {
+            "facet": "z-indicator"
+        },
+        "z-unit-measure": {
+            "facet": "z-unit-measure"
+        }
+    },
+    "multidim": 3,
+    "plotlines": {
+        "x": "values",
+        "y": "values"
+    },
+    "series-legend-label": "long",
+    "series-point-label": "long",
+    "text": [],
+    "titles": {
+        "subtitle": [
+            {
+                "facet_name": "z-indicator",
+                "format": "short_label",
+                "prefix": "Size of bubbles (Z):",
+                "suffix": "<br>"
+            },
+            {
+                "facet_name": "z-breakdown",
+                "format": "label",
+                "prefix": "by ",
+                "suffix": null
+            }
+        ],
+        "title": [
+            {
+                "facet_name": "time-period",
+                "format": "label",
+                "prefix": null,
+                "suffix": null
+            }
+        ],
+        "xAxisTitle": [
+            {
+                "facet_name": "x-indicator",
+                "format": "short_label",
+                "prefix": null,
+                "suffix": "<br>"
+            },
+            {
+                "facet_name": "x-breakdown",
+                "format": "label",
+                "prefix": "by ",
+                "suffix": null
+            }
+        ],
+        "yAxisTitle": [
+            {
+                "facet_name": "y-indicator",
+                "format": "short_label",
+                "prefix": null,
+                "suffix": "<br>"
+            },
+            {
+                "facet_name": "y-breakdown",
+                "format": "label",
+                "prefix": "by ",
+                "suffix": null
+            }
+        ]
+    },
+    "tooltips": {
+        "flag": true,
+        "note": true,
+        "unit-measure": true
+    }
+}
