@@ -66,7 +66,7 @@
             "dimension": "unit-measure",
             "label": "Unit of measure",
             "name": "unit-measure",
-            "position": "upper-left",
+            "position": "upper-right",
             "sortBy": "order_in_codelist",
             "sortOrder": "asc",
             "type": "select"
