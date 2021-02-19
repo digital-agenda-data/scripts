@@ -81,7 +81,8 @@ p_mpmd
 SPECIAL VARIABLES
 =================
 e_awsww, e_awshm, e_awseu: imported using a different query
-e_ebuy: EU27, EU28 are skipped for years 2011-2014
+e_ebuy: EU average used to be skipped (initially for 2010-2014), then only for year 2010
+	* exception removed from the queries as of 2021.02.16
 
 MAPPING
 ========

@@ -9,6 +9,7 @@ http://reference.data.gov.uk/id/gregorian-year/2016
 http://reference.data.gov.uk/id/gregorian-year/2017
 http://reference.data.gov.uk/id/gregorian-year/2018
 http://reference.data.gov.uk/id/gregorian-year/2019
+http://reference.data.gov.uk/id/gregorian-year/2020
 
 -- ENT2 variables
 

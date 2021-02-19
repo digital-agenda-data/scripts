@@ -1,3 +1,5 @@
+# This query should no longer be needed as of 2021.02.16
+
 select
 years.Year as year,
 'EU' as country,
@@ -24,7 +26,7 @@ from DataWithAggregates
 where
 
 lcase(Variables.ExpVariable) in ('e_ebuy') AND
-Countries.ExpCountry = 'EU28' AND
+Countries.ExpCountry = 'EU27_2020' AND
 lcase(Units.ExpUnit) in (
 'pc_ent', 'pc_turn', 'pc_ent_itsprcr2', 'pc_emp', 'pc_emp_pmd'
 ) AND Years.Year > '2009' AND Years.Year < '2014'

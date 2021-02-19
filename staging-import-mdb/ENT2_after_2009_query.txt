@@ -1,7 +1,7 @@
 select
 years.Year as year,
 case Countries.ExpCountry
-  when 'EU28' then 'EU'
+  when 'EU27_2020' then 'EU'
   else Countries.ExpCountry end as country,
 
 either(equ(lcase(Variables.ExpVariable), 'e_igov2'), 'e_igov',
@@ -51,7 +51,7 @@ from DataWithAggregates
 
 where
 
-Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU27_2020')
 AND lcase(Units.ExpUnit) in (
   'pc_ent',
   'pc_turn',
@@ -92,8 +92,7 @@ AND lcase(BrkDwns.ExpBrkDwn) in (
   'sm_c10_s951_xk'
 )
 
-AND (
-  lcase(Variables.ExpVariable) in (
+AND lcase(Variables.ExpVariable) in (
   'e_ade',
   'e_ads',
   'e_ads_loc',
@@ -164,10 +163,6 @@ AND (
   'p_empmd1',
   'p_iacc3g',
   'p_iuse',
-  'p_mpmd'
-  )
-  OR (
-    lcase(Variables.ExpVariable) in ('e_ebuy')
-    AND (Countries.ExpCountry not in ('EU28') OR Years.Year = '2010')
-  )
+  'p_mpmd',
+  'e_ebuy'
 )

@@ -2,7 +2,7 @@ select
 years.Year as year,
 
 case Countries.ExpCountry
-  when 'EU28' then 'EU'
+  when 'EU27_2020' then 'EU'
   else Countries.ExpCountry end as country,
 
 'e_aws' as variable,
@@ -22,7 +22,7 @@ from DataWithAggregates
 
 where
 
-Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU27_2020')
 AND lcase(Units.ExpUnit) = 'pc_ent'
 AND lcase(BrkDwns.ExpBrkDwn) = '10_c10_s951_xk'
 AND lcase(Variables.ExpVariable) = 'e_awsww'
@@ -32,7 +32,7 @@ UNION ALL
 select
 years.Year as year,
 case Countries.ExpCountry
-  when 'EU28' then 'EU'
+  when 'EU27_2020' then 'EU'
   else Countries.ExpCountry end as country,
 
 'e_aws' as variable,
@@ -52,7 +52,7 @@ from DataWithAggregates
 
 where
 
-Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU27_2020')
 AND lcase(Units.ExpUnit) = 'pc_ent'
 AND lcase(BrkDwns.ExpBrkDwn) = '10_c10_s951_xk'
 AND lcase(Variables.ExpVariable) = 'e_awshm'
@@ -62,7 +62,7 @@ UNION ALL
 select
 years.Year as year,
 case Countries.ExpCountry
-  when 'EU28' then 'EU'
+  when 'EU27_2020' then 'EU'
   else Countries.ExpCountry end as country,
 
 'e_aws' as variable,
@@ -82,7 +82,7 @@ from DataWithAggregates
 
 where
 
-Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU27_2020')
 
 AND lcase(Units.ExpUnit) = 'pc_ent'
 AND lcase(BrkDwns.ExpBrkDwn) = '10_c10_s951_xk'
