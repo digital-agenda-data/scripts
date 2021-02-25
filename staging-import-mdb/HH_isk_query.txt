@@ -2,7 +2,7 @@ select
 years.Year as year,
 
 case Countries.ExpCountry
-  when 'EU28' then 'EU'
+  when 'EU27_2020' then 'EU'
   else Countries.ExpCountry end as country,
 
 'i_isk_ge_me' as variable,
@@ -29,7 +29,7 @@ from DataWithAggregates
 
 where
 
-Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU27_2020')
 AND lower(Units.ExpUnit) IN ('mio_ind', 'pc_ind', 'pc_ind_iu3')
 AND lower(Variables.ExpVariable) in ('i_isk_hi', 'i_isk_me')
 AND lower(BrkDwns.ExpBrkDwn) in ('ind_total', 'hhi_q1', 'hhi_q2', 'hhi_q3', 'hhi_q4', 'y16_24', 'y25_54', 'y25_64', 'y55_74',
@@ -46,7 +46,7 @@ select
 years.Year as year,
 
 case Countries.ExpCountry
-  when 'EU28' then 'EU'
+  when 'EU27_2020' then 'EU'
   else Countries.ExpCountry end as country,
 
 'i_csk_ge_me' as variable,
@@ -73,7 +73,7 @@ from DataWithAggregates
 
 where
 
-Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU27_2020')
 AND lower(Units.ExpUnit) IN ('mio_ind', 'pc_ind', 'pc_ind_iu3')
 AND lower(Variables.ExpVariable) in ('i_csk_hi', 'i_csk_me')
 AND lower(BrkDwns.ExpBrkDwn) in ('ind_total', 'hhi_q1', 'hhi_q2', 'hhi_q3', 'hhi_q4', 'y16_24', 'y25_54', 'y25_64', 'y55_74',

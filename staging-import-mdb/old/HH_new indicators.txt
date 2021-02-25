@@ -1,0 +1,11 @@
+I_IDAY_D In the last 3 months, I accessed the Internet, on average, several times during the day
+I_ILT12_SSF I last used the Internet within the last year and I am employee or self-employed (for validation purposes only)
+I_IUMC_T I have used a tablet to access the Internet away from home or work
+
+I_MCEW, I_MCW*, I_MDW*
+
+I_MPP Individuals use a smartphone for private purposes
+
+I_SKTP Individuals carried out at least one training activity to improve skills relating to the use of computers, software or applications
+...
+I_WH Individuals worked from home at least once

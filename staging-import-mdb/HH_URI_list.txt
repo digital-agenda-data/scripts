@@ -56,3 +56,9 @@ http://semantic.digital-agenda-data.eu/codelist/indicator/i_secfl
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_secpif1
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_secvir1
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_skedu
+
+
+
+
+http://semantic.digital-agenda-data.eu/codelist/indicator/i_isk_ge_me
+http://semantic.digital-agenda-data.eu/codelist/indicator/i_csk_ge_me

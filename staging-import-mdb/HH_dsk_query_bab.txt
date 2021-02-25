@@ -2,7 +2,7 @@ select
 'i_dsk_i_bab' as variable,
 years.Year as year,
 case Countries.ExpCountry
-  when 'EU28' then 'EU'
+  when 'EU27_2020' then 'EU'
   else Countries.ExpCountry end as country,
 lower(BrkDwns.ExpBrkDwn) as brkdown,
 lower(Units.ExpUnit) as unit,
@@ -19,7 +19,7 @@ from DataWithAggregates
 
 where
 
-Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU27_2020')
 AND lower(Units.ExpUnit) IN ('pc_ind', 'pc_ind_iu3')
 AND lower(Variables.ExpVariable) in ('i_dsk_i_b', 'i_dsk_i_ab')
 
@@ -91,7 +91,7 @@ select
 'i_dsk_c_bab' as variable,
 years.Year as year,
 case Countries.ExpCountry
-  when 'EU28' then 'EU'
+  when 'EU27_2020' then 'EU'
   else Countries.ExpCountry end as country,
 lower(BrkDwns.ExpBrkDwn) as brkdown,
 lower(Units.ExpUnit) as unit,
@@ -108,7 +108,7 @@ from DataWithAggregates
 
 where
 
-Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU27_2020')
 AND lower(Units.ExpUnit) IN ('pc_ind', 'pc_ind_iu3')
 AND lower(Variables.ExpVariable) in ('i_dsk_c_b', 'i_dsk_c_ab')
 
@@ -179,7 +179,7 @@ select
 'i_dsk_ps_bab' as variable,
 years.Year as year,
 case Countries.ExpCountry
-  when 'EU28' then 'EU'
+  when 'EU27_2020' then 'EU'
   else Countries.ExpCountry end as country,
 lower(BrkDwns.ExpBrkDwn) as brkdown,
 lower(Units.ExpUnit) as unit,
@@ -196,7 +196,7 @@ from DataWithAggregates
 
 where
 
-Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU27_2020')
 AND lower(Units.ExpUnit) IN ('pc_ind', 'pc_ind_iu3')
 AND lower(Variables.ExpVariable) in ('i_dsk_ps_b', 'i_dsk_ps_ab')
 
@@ -267,7 +267,7 @@ select
 'i_dsk_s_bab' as variable,
 years.Year as year,
 case Countries.ExpCountry
-  when 'EU28' then 'EU'
+  when 'EU27_2020' then 'EU'
   else Countries.ExpCountry end as country,
 lower(BrkDwns.ExpBrkDwn) as brkdown,
 lower(Units.ExpUnit) as unit,
@@ -284,7 +284,7 @@ from DataWithAggregates
 
 where
 
-Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU28')
+Countries.ExpCountry IN ('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK', 'EU27_2020')
 AND lower(Units.ExpUnit) IN ('pc_ind', 'pc_ind_iu3')
 AND lower(Variables.ExpVariable) in ('i_dsk_s_b', 'i_dsk_s_ab')
 

@@ -1,0 +1,69 @@
+select
+years.Year as year,
+Countries.ExpCountry as country,
+lcase(Variables.ExpVariable)as variable,
+
+either(equ(lcase(BrkDwns.ExpBrkDwn), '10_c10_s951_xk'), 'ent_all_xfin',
+  either(equ(lcase(BrkDwns.ExpBrkDwn), 'sm_c10_s951_xk'), 'ent_sm_xfin',
+  either(equ(lcase(BrkDwns.ExpBrkDwn), 's_c10_s951_xk'), 'ent_s_xfin',
+  either(equ(lcase(BrkDwns.ExpBrkDwn), 'm_c10_s951_xk'), 'ent_m_xfin',
+  either(equ(lcase(BrkDwns.ExpBrkDwn), 'l_c10_s951_xk'), 'ent_l_xfin',
+  lcase(BrkDwns.ExpBrkDwn)))))) as brkdown,
+
+lcase(Units.ExpUnit) as unit,
+DataWithAggregates.Value as obsValue,
+coalesce(DataWithAggregates.Flags, '') as flag,
+coalesce(Notes.Note, '') as note
+
+from DataWithAggregates
+  join Years on DataWithAggregates.IdYear = Years.IdYear
+  join Variables on DataWithAggregates.IdVariable = Variables.IdVariable
+  join BrkDwns on DataWithAggregates.IdBrkDwn = BrkDwns.IdBrkDwn
+  join Countries on DataWithAggregates.IdCountry = Countries.IdCountry
+  join Units on DataWithAggregates.IdUnit = Units.IdUnit
+  left outer join Notes on (DataWithAggregates.IdNote = Notes.IdNote and DataWithAggregates.IdYear = Notes.IdYear)
+
+where
+
+Countries.ExpCountry in ('EU27_2007', 'EU27_2020')
+AND lcase(Units.ExpUnit) in (
+  'pc_ent',
+  'pc_turn',
+  'pc_ent_itsprcr2',
+  'pc_emp',
+  'pc_emp_pmd',
+  'pc_ent_aesell'
+) AND Years.Year = 2013
+
+AND lcase(BrkDwns.ExpBrkDwn) in (
+  '10_c10_18',
+  '10_c10_s951_xk',
+  '10_c19_23',
+  '10_c24_25',
+  '10_c26_33',
+  '10_d35_e39',
+  '10_f41_43',
+  '10_g45',
+  '10_g46',
+  '10_g47',
+  '10_h49_53',
+  '10_i55_56',
+  '10_j58_60',
+  '10_j61',
+  '10_j62_63',
+  '10_l68',
+  '10_m69_74',
+  '10_n77_82',
+  'l_c10_f43',
+  'l_c10_s951_xk',
+  'l_g45_s951_xk',
+  'm_c10_f43',
+  'm_c10_s951_xk',
+  'm_g45_s951_xk',
+  's_c10_f43',
+  's_c10_s951_xk',
+  's_g45_s951_xk',
+  'sm_c10_s951_xk'
+)
+
+AND lcase(Variables.ExpVariable)= 'e_eturn'
