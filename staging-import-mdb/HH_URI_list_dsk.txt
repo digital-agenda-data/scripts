@@ -19,14 +19,9 @@ http://semantic.digital-agenda-data.eu/codelist/indicator/i_cisk_sfjobx
 http://semantic.digital-agenda-data.eu/codelist/indicator/i_cisk_sfjob
 http://semantic.digital-agenda-data.eu/codelist/indicator/i-dsk-iu3
 http://semantic.digital-agenda-data.eu/codelist/indicator/i-dsk-ind
-http://semantic.digital-agenda-data.eu/codelist/indicator/i_dsk_bab
 http://semantic.digital-agenda-data.eu/codelist/indicator/i-dsk-i
-http://semantic.digital-agenda-data.eu/codelist/indicator/i_dsk_i_bab
 http://semantic.digital-agenda-data.eu/codelist/indicator/i-dsk-c
-http://semantic.digital-agenda-data.eu/codelist/indicator/i_dsk_c_bab
 http://semantic.digital-agenda-data.eu/codelist/indicator/i-dsk-ps
-http://semantic.digital-agenda-data.eu/codelist/indicator/i_dsk_ps_bab
 http://semantic.digital-agenda-data.eu/codelist/indicator/i-dsk-s
-http://semantic.digital-agenda-data.eu/codelist/indicator/i_dsk_s_bab
 http://semantic.digital-agenda-data.eu/codelist/indicator/digskillindex
 http://semantic.digital-agenda-data.eu/codelist/indicator/digskillindex_basicandabove
